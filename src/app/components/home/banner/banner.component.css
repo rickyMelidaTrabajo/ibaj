@@ -1,0 +1,57 @@
+header {
+  width: 300px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  animation: titleDown 3s 1 forwards;
+  z-index: 50;
+}
+
+header h3 {
+  font-size: 21px;
+  font-weight: bold;
+  color: #1e272e;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.banner {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  left: 50%;
+  animation: bannerUp  3s 1 forwards;
+  z-index: 50;
+
+}
+
+.banner p {
+  color: #1e272e;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+@keyframes titleDown {
+  from {
+    top: -10%;
+    transform: translate(-50%, 10%);
+  }
+
+  to {
+    top: 15%;
+    transform: translate(-50%, -15%);
+  }
+}
+
+@keyframes bannerUp {
+  from {
+    top: 120%;
+    transform: translate(-50%, 120%);
+  }
+
+  to {
+    top: 25%;
+    transform: translate(-50%, -25%);
+  }
+}
+

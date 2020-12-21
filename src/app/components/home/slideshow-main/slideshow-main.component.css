@@ -1,0 +1,37 @@
+.container {
+  padding: 0;
+  margin: 0;
+}
+
+.slideshow {
+  width: auto;
+  height: 100vh;
+  background: url('/assets/imagenes/image_1.jpg') no-repeat ;
+  background-size: 100% 100vh;
+  animation: slideshow 20s infinite;
+  opacity: .8;
+}
+
+@keyframes slideshow {
+  20% {
+    background: url('/assets/imagenes/image_2.jpg') no-repeat ;
+    background-size: 100% 100vh;
+  }
+  40% {
+    background: url('/assets/imagenes/image_3.jpg') no-repeat ;
+    background-size: 100% 100vh;
+  }
+  60% {
+    background: url('/assets/imagenes/image_4.jpg') no-repeat ;
+    background-size: 100% 100vh;
+  }
+  80% {
+    background: url('/assets/imagenes/image_5.jpg') no-repeat ;
+    background-size: 100% 100vh;
+  }
+  100% {
+    background: url('/assets/imagenes/image_1.jpg') no-repeat ;
+    background-size: 100% 100vh;
+  }
+}
+/*C:\Users\Ricardo Mendez\Documents\Ricardo\Project\ibaj\src\assets\imagenes*/

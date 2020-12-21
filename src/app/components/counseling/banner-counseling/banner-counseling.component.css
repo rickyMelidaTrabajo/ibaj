@@ -1,0 +1,14 @@
+.banner {
+  width: 80%;
+  height: 20%;
+  margin: 20% auto 10%;
+  color: #dfe6e9;
+  line-height: 25px;
+}
+
+.banner .title {
+  text-align: center;
+  margin: 10%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 21px;
+}

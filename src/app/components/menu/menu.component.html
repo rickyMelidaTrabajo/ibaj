@@ -1,0 +1,30 @@
+<div class="header" id="header">
+  <!-- [ngStyle]="{'background':'green'}" -->
+  <label for="menu">
+    <img src="../assets/icons/menu.png" [ngClass]='{
+      mostrarIconoMenu : valueShowIconMenu,
+      ocultarIconoMenu : !valueShowIconMenu
+    }'>
+  </label>
+  <h2 class="titulo">IBPR</h2>
+  <input type="checkbox" [(ngModel)]="value" name="menu" id="menu" />
+</div>
+
+<div class="main" [ngClass]='{
+  mostrarMain: value,
+  ocultarMain: !value
+}'>
+  <label for="menu" [ngClass]='{
+    mostrarIconClose : value,
+    ocultarIconClose : !value
+  }'>X</label>
+  <ul>
+    <li routerLink="/">Home</li>
+    <li routerLink="/nosotros">Nosotros</li>
+    <li routerLink="/actividades">Actividades</li>
+    <li routerLink="/consejeria">Consejería</li>
+    <li routerLink="/intercesion">Motivos de Oración</li>
+    <li routerLink="/blog">Blog</li>
+    <li>Radio</li>
+  </ul>
+</div>

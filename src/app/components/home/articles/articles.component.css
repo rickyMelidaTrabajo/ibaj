@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20%;
+}
+
+.articles {
+  width: 80%;
+  height: 50vh;
+  background: url('/assets/imagenes/crecimiento.jpeg') no-repeat ;
+  background-size: 100% 100%;
+  margin: 10% auto;
+}
+
+.articles .content {
+ padding: 20% 5%;
+
+}
+
+app-pagination {
+  display: block;
+  margin: auto;
+}

@@ -1,0 +1,15 @@
+<div class="container" >
+  <section class="articles" *ngFor="let nota of articles; let i = index">
+    <div class="title">
+      <h4> {{ nota.principlaTitle }}</h4>
+      <h5> {{ nota.subTitle }} </h5>
+    </div>
+    <p class="content">
+      {{ nota.content }}
+    </p>
+    <span></span>
+  </section>
+
+  <!-- <app-pagination [cantidadArticles]="articles.length" (mensajeHijo)="numArticles($event)"></app-pagination> -->
+</div>
+
