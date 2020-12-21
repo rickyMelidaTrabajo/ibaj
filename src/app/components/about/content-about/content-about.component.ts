@@ -12,6 +12,8 @@ export class ContentAboutComponent implements OnInit {
   @Input() data: string;
   servicios: Servicios;
   misionVision: Objetivos;
+  dataView: any;
+  dataType: string;
 
   constructor() { }
 
@@ -35,12 +37,16 @@ export class ContentAboutComponent implements OnInit {
         this.servicios = JSON.parse(this.data);
         res = this.servicios;
       }
-      console.log(secondChar);
     } else {
       res = this.data;
     }
+    this.dataType = typeof(res);
 
-    console.log(res);
+    console.log(`El tipo de dato es ${this.dataType}`);
+  }
+
+  tipoObjeto() {
+
   }
 
 

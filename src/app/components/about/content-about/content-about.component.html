@@ -51,7 +51,12 @@
 
   </div> -->
 
-  <p>{{data}}</p>
-  <p>{{testData()}}</p>
+  <div *ngIf="dataType == 'string';else esObjeto">
+    <p>{{data}}</p>
+  </div>
+
+  <ng-template #esObjeto>
+    <p>{{testData()}}</p>
+  </ng-template>
 
 </div>
