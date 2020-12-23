@@ -1,13 +1,12 @@
 footer {
   width: 100%;
   height: 20%;
-  position: static;
   left:0px;
   bottom:0px;
   background: #1e272e;
   padding: 5px 0px;
   margin-top: 5%;
-
+  color: beige;
 }
 
 footer span {
@@ -23,10 +22,37 @@ footer .redes {
   margin: 5% 0;
 }
 
-.redes a {
-  font-size: 26px;
-  color: black;
+.redes a i{
+  font-size: 18px;
   text-decoration: none;
   margin: 2%;
+  color: beige;
+
+}
+
+.info {
+  width: 100%;
+}
+
+.info ul {
+  width: 90%;
+}
+
+.info ul li {
+  list-style: none;
+  font-size: 16px;
+  padding: 5%;
+}
+
+.map {
+  width: 100%;
+}
+
+iframe {
+  width: 90%;
+  height: 350px;
+  border: 0;
+  display: block;
+  margin: 0 5%;
 }
 

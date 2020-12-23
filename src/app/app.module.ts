@@ -28,6 +28,10 @@ import { SlideshowMainComponent } from './components/home/slideshow-main/slidesh
 import { HttpClientModule } from "@angular/common/http";
 
 
+//Mapas
+// import { AgmCoreModule } from '@agm/core';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +59,9 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyDsl1coS2qOF2r4D_rdeVGwdUHKrPXOSJQ'
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]
