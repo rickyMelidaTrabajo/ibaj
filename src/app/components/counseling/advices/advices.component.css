@@ -5,9 +5,8 @@
 
 .consejo{
   width: 70%;
-  height: 250px;
+  height: auto;
   margin: auto;
-  /* border: solid 1px #fff; */
   padding: 10px;
 }
 .consejo .image img{
@@ -16,7 +15,7 @@
 
 .consejo .des-consejo {
   margin: 10% auto;
-  color: bisque;
+  color: #8c4966;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 23px;
   line-height: 30px;
@@ -24,5 +23,10 @@
 
 .consejo .des-consejo cite {
   font-size: 15px;
+}
 
+.text-consejo {
+  width: 100%;
+  height: 19vh;
+  overflow: hidden;
 }

@@ -7,7 +7,7 @@ import { About } from '../models/about.interface';
 })
 export class DataWebService {
   dataAbout: any;
-  // private firebase: AngularFireDatabase
+  dataConsejos: any;
 
   constructor( private _http: HttpClient ) { }
 
@@ -18,5 +18,14 @@ export class DataWebService {
     })
 
     return this.dataAbout
+  }
+
+  consejos(): any {
+    this._http.get('https://editoriales-ibpr.firebaseio.com/consejos.json')
+    .subscribe(res=>{
+      this.dataConsejos = res;
+    })
+
+    return this.dataConsejos;
   }
 }
