@@ -6,13 +6,15 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { CounselingComponent } from './pages/counseling/counseling.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PrayerMotiveComponent } from './pages/prayer-motive/prayer-motive.component';
+import { CounselingDetailsComponent } from './pages/counseling-details/counseling-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'nosotros', component: AboutComponent },
   { path: 'actividades', component: ActivitiesComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'consejeria', component: CounselingComponent },
+  { path: 'consejeria', component: CounselingComponent, },
+  { path: 'details/:id', component: CounselingDetailsComponent },
   { path: 'intercesion', component: PrayerMotiveComponent }
 ];
 
@@ -22,4 +24,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppRoutingModule{ }
+export class AppRoutingModule { }

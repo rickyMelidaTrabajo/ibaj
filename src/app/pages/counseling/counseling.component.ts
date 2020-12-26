@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataWebService } from '../../services/data-web.service';
 
 @Component({
   selector: 'app-counseling',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounselingComponent implements OnInit {
 
-  constructor() { }
+  constructor( private _sale: DataWebService) { }
 
   ngOnInit(): void {
+    console.log(this._sale.consejos());
+    window.scrollTo(0, 0);
+
   }
 
 }

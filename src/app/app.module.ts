@@ -26,6 +26,8 @@ import { ArticlesComponent } from './components/home/articles/articles.component
 import { SlideshowMainComponent } from './components/home/slideshow-main/slideshow-main.component';
 
 import { HttpClientModule } from "@angular/common/http";
+import { DetailsComponent } from './components/counseling/details/details.component';
+import { CounselingDetailsComponent } from './pages/counseling-details/counseling-details.component';
 
 
 //Mapas
@@ -52,7 +54,9 @@ import { HttpClientModule } from "@angular/common/http";
     CounselingComponent,
     BannerComponent,
     ArticlesComponent,
-    SlideshowMainComponent
+    SlideshowMainComponent,
+    DetailsComponent,
+    CounselingDetailsComponent
   ],
   imports: [
     BrowserModule,
