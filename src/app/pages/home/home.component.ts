@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { waitMe } from "waitme/waitMe";
+
+// Declaramos las variables para jQuery
+declare var jQuery: any;
+declare var $: any;
+
 
 @Component({
   selector: 'app-home',
@@ -11,5 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }

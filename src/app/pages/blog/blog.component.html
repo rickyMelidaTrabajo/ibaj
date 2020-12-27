@@ -1,7 +1,22 @@
 <app-menu></app-menu>
 <div class="container">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis omnis, tempora consectetur reiciendis iure modi quas mollitia? Neque, modi? Ad odio, officiis animi fugit mollitia voluptate quasi omnis vitae deserunt?
-  </p>
+  <div class="blog" *ngFor="let data of blog">
+
+    <hr>
+    <div class="titulo">
+      <h3>Titulo</h3>
+    </div>
+    <hr>
+
+    <div class="image">
+      <img src="/assets/imagenes/consejos/1.jpg" alt="">
+    </div>
+    <div class="text">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis omnis, tempora consectetur reiciendis iure modi
+        quas mollitia? Neque, modi? Ad odio, officiis animi fugit mollitia voluptate quasi omnis vitae deserunt?
+      </p>
+    </div>
+  </div>
 
 </div>

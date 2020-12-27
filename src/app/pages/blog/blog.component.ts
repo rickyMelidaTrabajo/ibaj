@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
+  blog: Array<any> = [1, 2, 3, 4, 5];
 
   constructor() { }
 

@@ -1,0 +1,73 @@
+.container {
+  width: 100%;
+  margin-bottom: 5%;
+}
+.container .banner {
+  width: 100%;
+  height: 100vh;
+  background: url("/assets/imagenes/oracion.jpg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.5;
+}
+
+.versiculo {
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  width: 300px;
+  /* background: red; */
+  text-align: center;
+}
+
+h3 {
+  color: #222;
+  font-size: 36px;
+}
+
+.versiculo p {
+  font-size: 20px;
+  color: rgb(26, 17, 17);
+}
+
+.versiculo p cite {
+  display: block;
+}
+
+.content {
+  width: 80%;
+  padding: 10%;
+  margin-top: 10%;
+}
+
+.content .texto {
+  font-size: 26px;
+  margin: 30% 5%;
+}
+
+.form-group {
+  width: 100%;
+  margin: 15px auto;
+}
+
+.form-group label {
+  display: block;
+  font-size: 18px;
+  color: #222;
+}
+
+.form-group input, textarea {
+  width: 100%;
+  border: 2px solid black;
+}
+
+.form-group input {
+  height: 25px;
+}
+
+form button {
+  width: 100%;
+  height: 35px;
+  font-size: 21px;
+  border-radius: 13px;
+}

@@ -1,0 +1,19 @@
+.container  {
+  width: 100%;
+  margin-top: 10%;
+}
+
+.container .blog {
+  width: 80%;
+  padding: 10%;
+}
+
+.container .blog .titulo {
+  text-align: center;
+}
+
+.blog .image img {
+  width: 100%;
+}
+
+
