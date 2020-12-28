@@ -1,11 +1,11 @@
 <div class="container" >
-  <section class="articles" *ngFor="let nota of articles; let i = index">
-    <div class="title">
-      <h4> {{ nota.principlaTitle }}</h4>
-      <h5> {{ nota.subTitle }} </h5>
+  <section class="articles" >
+    <div class="title" (click)="getData()">
+      <h4> Titulo</h4>
+      <h5> Subtitulo </h5>
     </div>
     <p class="content">
-      {{ nota.content }}
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos error quae atque exercitationem? Dolore cupiditate sit modi excepturi nisi eos ipsam expedita quos voluptate animi! Eveniet eos perspiciatis iste dicta!
     </p>
     <span></span>
   </section>

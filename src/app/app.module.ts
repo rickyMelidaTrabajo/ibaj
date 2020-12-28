@@ -30,8 +30,10 @@ import { DetailsComponent } from './components/counseling/details/details.compon
 import { CounselingDetailsComponent } from './pages/counseling-details/counseling-details.component';
 
 
-//Mapas
-// import { AgmCoreModule } from '@agm/core';
+//Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -62,10 +64,9 @@ import { CounselingDetailsComponent } from './pages/counseling-details/counselin
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyDsl1coS2qOF2r4D_rdeVGwdUHKrPXOSJQ'
-    // })
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Blog } from 'src/app/models/blog.interface';
+import { DataWebService } from 'src/app/services/data-web.service';
 
-interface Article {
-  principlaTitle: String;
-  subTitle: string;
-  content: string;
-}
 
 @Component({
   selector: 'app-articles',
@@ -14,44 +11,43 @@ interface Article {
 
 export class ArticlesComponent implements OnInit {
 
-  articles: Array<Article> = new Array();
-  articlesView: Array<Article> = new Array();
+  articles: Array<Blog> = new Array();
+  datos: any[];
+  // articlesView: Array<Blog> = new Array();
 
-  cantArticles: number;
+  // cantArticles: number;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    //agregamos datos a todos nuestros articulos
-    for (let i = 1; i <= 20; i++) {
-      this.articles.push({
-        principlaTitle: "Editorial N°"+i,
-        subTitle: "Una Iglesia que crece",
-        content: "Una iglesia que crece, tiene que apredender a escuchar a Dios y creerle. Creerle a Dios implica aceptar Su palabra y entregarse para hacer su voluntad. Esto trae consigo.."
-      });
-
-    }
-
-
-    setTimeout(()=> {
-      //Agregamos los articulos que se van a mostrar
-      for (let i = 0; i < this.cantArticles; i++) {
-        this.articlesView.push({
-          principlaTitle: this.articles[i].principlaTitle,
-          subTitle: this.articles[i].subTitle,
-          content: this.articles[i].content
-        });
-      }
-    }, 100);
-    setTimeout(()=>{
-
-      console.log(this.articles);
-    }, 1000)
+  constructor(private dataBlog: DataWebService,) {
 
   }
 
-  numArticles(event) {
-    this.cantArticles = event.cantPaginas;
-    console.log(event);
+  ngOnInit(): void {
+    setTimeout(()=>{
+      this.dataBlog.getArticles()
+      .subscribe(
+        item =>{
+          this.datos = [];
+          item.forEach( (element, index) =>{
+            let elemento = element.payload;
+            //elemento['id'] = element.key;
+            this.datos[''] = element.payload.doc.data();
+            // console.log(element.payload.doc.data().data);
+            console.log(`hay elementos`)
+            console.log(this.datos);
+          })
+        })
+
+    }, 2000);
+  }
+
+  // numArticles(event) {
+  //   this.cantArticles = event.cantPaginas;
+  //   console.log(event);
+  // }
+
+  getData() {
+    this.articles = this.dataBlog.blog();
+    console.log(this.articles);
+
   }
 }

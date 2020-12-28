@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataWebService } from 'src/app/services/data-web.service';
 
 @Component({
   selector: 'app-prayer-motive',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrayerMotiveComponent implements OnInit {
 
-  constructor() { }
+  data:any = {
+    nombre: 'Ricardo',
+    email : 'ricardomelida92@gmail.com',
+    peticion: 'Por un trabajo mejor'
+  };
+
+  constructor(private _prayerService: DataWebService) { }
 
   ngOnInit(): void {
+  }
+
+  addData() {
+    this._prayerService.addPrayer(this.data);
   }
 
 }
