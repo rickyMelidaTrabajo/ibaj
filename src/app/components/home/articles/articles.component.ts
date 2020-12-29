@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Blog } from 'src/app/models/blog.interface';
 import { DataWebService } from 'src/app/services/data-web.service';
 
+interface Data {
+  data: string;
+}
 
 @Component({
   selector: 'app-articles',
@@ -12,7 +15,7 @@ import { DataWebService } from 'src/app/services/data-web.service';
 export class ArticlesComponent implements OnInit {
 
   articles: Array<Blog> = new Array();
-  datos: any[];
+  datos: Array<any>;
   // articlesView: Array<Blog> = new Array();
 
   // cantArticles: number;
@@ -22,21 +25,20 @@ export class ArticlesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(()=>{
-      this.dataBlog.getArticles()
-      .subscribe(
-        item =>{
-          this.datos = [];
-          item.forEach( (element, index) =>{
-            let elemento = element.payload;
-            //elemento['id'] = element.key;
-            this.datos[''] = element.payload.doc.data();
-            // console.log(element.payload.doc.data().data);
-            console.log(`hay elementos`)
-            console.log(this.datos);
-          })
-        })
+    window.scroll(0,0);
+    this.dataBlog.getArticles()
+    .subscribe(item => {
+      this.datos = [];
+      item.forEach((element, index) => {
+        this.datos.push( element.payload.doc.data())
+      })
+    })
 
+    setTimeout(() => {
+      this.articles = this.datos[0].data;
+      localStorage.clear();
+      localStorage.removeItem('articles');
+      localStorage.setItem('articles', JSON.stringify(this.articles));
     }, 2000);
   }
 
@@ -48,6 +50,5 @@ export class ArticlesComponent implements OnInit {
   getData() {
     this.articles = this.dataBlog.blog();
     console.log(this.articles);
-
   }
 }

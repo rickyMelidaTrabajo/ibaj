@@ -1,13 +1,23 @@
 <div class="container" >
-  <section class="articles" >
-    <div class="title" (click)="getData()">
-      <h4> Titulo</h4>
-      <h5> Subtitulo </h5>
+  <section class="articles" *ngFor="let article of articles">
+    <div class="image">
+      <img src="{{ article.urlImagen }}" alt="">
     </div>
-    <p class="content">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos error quae atque exercitationem? Dolore cupiditate sit modi excepturi nisi eos ipsam expedita quos voluptate animi! Eveniet eos perspiciatis iste dicta!
-    </p>
-    <span></span>
+    <div class="content">
+
+      <div class="title">
+        <h4> {{ article.titulo }} </h4>
+      </div>
+
+      <p class="text">
+        {{ article.texto }}
+      </p>
+      <a href="http://">leer mas..</a>
+      <cite> {{ article.autor }} </cite>
+
+      <span> {{ article.fecha }} </span>
+
+    </div>
   </section>
 
   <!-- <app-pagination [cantidadArticles]="articles.length" (mensajeHijo)="numArticles($event)"></app-pagination> -->

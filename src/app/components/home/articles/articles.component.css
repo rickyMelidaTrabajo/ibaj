@@ -2,18 +2,55 @@
   width: 100%;
   height: auto;
   margin-bottom: 20%;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 .articles {
   width: 80%;
-  height: 50vh;
-  background: url('/assets/imagenes/crecimiento.jpeg') no-repeat ;
-  background-size: 100% 100%;
+  height: 60vh;
   margin: 10% auto;
 }
 
-.articles .content {
- padding: 20% 5%;
+.image img {
+  position: absolute;
+  width: 80%;
+  height: 60vh;
+  opacity: .6;
+}
+
+.content {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  padding: 2%;
+}
+
+.title h4 {
+  margin: 2% 10%;
+  font-size: 1.75rem;
+}
+
+.articles .text {
+  font-size: 17px;
+  padding: 0 5%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.articles a {
+  font-size: 19px;
+  font-weight: bold;
+  margin-left: 6%;
+  text-decoration: none;
+}
+
+.articles cite, span {
+  display: block;
+  margin-left: 17px;
+}
+
+.articles cite {
+  margin-top: 15px;
 
 }
 
