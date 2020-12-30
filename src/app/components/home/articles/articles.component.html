@@ -12,7 +12,7 @@
       <p class="text">
         {{ article.texto }}
       </p>
-      <a href="http://">leer mas..</a>
+      <a [routerLink]="['/blog', article.id]">leer mas..</a>
       <cite> {{ article.autor }} </cite>
 
       <span> {{ article.fecha }} </span>

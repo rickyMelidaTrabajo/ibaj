@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'nosotros', component: AboutComponent },
   { path: 'actividades', component: ActivitiesComponent },
-  { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: BlogComponent },
   { path: 'consejeria', component: CounselingComponent, },
   { path: 'details/:id', component: CounselingDetailsComponent },
   { path: 'intercesion', component: PrayerMotiveComponent }

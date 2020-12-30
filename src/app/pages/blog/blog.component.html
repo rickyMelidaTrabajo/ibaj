@@ -1,20 +1,19 @@
 <app-menu></app-menu>
 <div class="container">
-  <div class="blog" *ngFor="let data of blog">
+  <div class="blog">
 
     <hr>
     <div class="titulo" (click)="getData()">
-      <h3>Titulo</h3>
+      <h3>{{ data.titulo }}</h3>
     </div>
     <hr>
 
     <div class="image">
-      <img src="/assets/imagenes/consejos/1.jpg" alt="">
+      <img src="{{ data.urlImagen }}" alt="">
     </div>
     <div class="text">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis omnis, tempora consectetur reiciendis iure modi
-        quas mollitia? Neque, modi? Ad odio, officiis animi fugit mollitia voluptate quasi omnis vitae deserunt?
+        {{ data.texto }}
       </p>
     </div>
   </div>

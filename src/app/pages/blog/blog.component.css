@@ -16,4 +16,11 @@
   width: 100%;
 }
 
+.blog .text {
+  font-size: 1.5rem;
+  font-family: 'Roboto Slab',serif;
+  font-weight: 315;
+  line-height: 1.625;
+}
+
 
