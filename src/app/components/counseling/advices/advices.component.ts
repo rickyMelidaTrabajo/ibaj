@@ -21,7 +21,6 @@ export class AdvicesComponent implements OnInit {
   obtener() {
     this.data = this._data.consejos();
     this.data.shift();
-    localStorage.clear();
     localStorage.removeItem('data');
     localStorage.setItem('data', JSON.stringify(this.data));
   }

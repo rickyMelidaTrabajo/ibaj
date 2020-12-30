@@ -34,7 +34,6 @@ export class ArticlesComponent implements OnInit {
 
     setTimeout(() => {
       this.articles = this.datos[0].data;
-      localStorage.clear();
       localStorage.removeItem('articles');
       localStorage.setItem('articles', JSON.stringify(this.articles));
     }, 2000);

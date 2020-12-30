@@ -17,6 +17,7 @@
 }
 
 .blog .text {
+  height: auto;
   font-size: 1.5rem;
   font-family: 'Roboto Slab',serif;
   font-weight: 315;

@@ -1,22 +1,46 @@
 <app-menu></app-menu>
 <div class="container">
-  <div class="blog">
 
-    <hr>
-    <div class="titulo" (click)="getData()">
-      <h3>{{ data.titulo }}</h3>
-    </div>
-    <hr>
+  <div *ngIf="all; else one">
 
-    <div class="image">
-      <img src="{{ data.urlImagen }}" alt="">
-    </div>
-    <div class="text">
-      <p>
-        {{ data.texto }}
-      </p>
+    <div class="blog" *ngFor="let article of allData">
+      <hr>
+      <div class="titulo">
+        <h3>{{ article.titulo }}</h3>
+      </div>
+      <hr>
+
+      <div class="image">
+        <img src="{{ article.urlImagen }}" alt="">
+      </div>
+      <div class="text">
+        <p>
+          {{ article.texto }}
+        </p>
+      </div>
     </div>
   </div>
+
+  <ng-template #one>
+    <div class="blog all">
+
+      <hr>
+      <div class="titulo" (click)="getData()">
+        <h3>{{ data.titulo }}</h3>
+      </div>
+      <hr>
+
+      <div class="image">
+        <img src="{{ data.urlImagen }}" alt="">
+      </div>
+      <div class="text">
+        <p>
+          {{ data.texto }}
+        </p>
+      </div>
+    </div>
+  </ng-template>
+
   <app-pagination></app-pagination>
   <app-footer></app-footer>
 </div>

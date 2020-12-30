@@ -1,4 +1,4 @@
-.container {
+  .container {
   width: 100%;
   height: auto;
   margin-bottom: 20%;
@@ -33,7 +33,7 @@
 .articles .text {
   font-size: 17px;
   padding: 0 5%;
-  height: 150px;
+  height: 140px;
   overflow: hidden;
 }
 
