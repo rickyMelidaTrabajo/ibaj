@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataWebService } from "../../../services/data-web.service";
-import { About } from "../../../models/about.interface";
+import { DataWebService } from 'src/app/services/data-web.service';
 
 
 @Component({
@@ -10,51 +9,77 @@ import { About } from "../../../models/about.interface";
 })
 export class BannerAboutComponent implements OnInit {
 
-  dataAbout: About;
+  dataAbout: any;
   dataView: string;
+  datos: Array<any>;
+  dataType: string;
 
   constructor(private _dataService: DataWebService) { }
 
   ngOnInit(): void {
-    this.getData();
+    this.datos = [];
   }
 
-  getData() {
-    this.dataAbout = this._dataService.obtenerDatos();
-  }
 
   getMisionVision() {
-    this.getData();
-    let res: any;
-    res = JSON.stringify(this.dataAbout.data.objetivos);
-    this.dataView = res
+    this.datos = [];
+    this._dataService.getObjetivos()
+    .subscribe( item => {
+      item.forEach((element, index) => {
+        this.datos.push( element.payload.doc.data());
+      });
+    });
+    console.log(this.datos);
+
   }
 
   getNosotros() {
-    this.getData();
-    let res: string;
-    res = this.dataAbout.data.nosotros;
-    this.dataView = res;
+    this.datos = [];
+    this._dataService.getNosotros()
+    .subscribe( item => {
+      item.forEach((element, index) => {
+        this.datos.push( element.payload.doc.data());
+        this.datos.push('algo')
+      });
+    });
+
+    console.log(this.datos);
+
   }
 
   getCreencias() {
-    this.getData();
-    let res: string;
-    res = this.dataAbout.data.creencias
-    this.dataView = res;
+    this.datos = [];
+    this._dataService.getCreencias()
+    .subscribe( item => {
+      item.forEach((element, index) => {
+        this.datos.push( element.payload.doc.data());
+      });
+    });
+    console.log(this.datos);
+
   }
 
   getConfesionFe() {
-    this.getData();
-    let res: string;
-    res = this.dataAbout.data.declaracionDeFe;
-    this.dataView = res;
+    this.datos = [];
+    this._dataService.getConfesionFe()
+    .subscribe( item => {
+      item.forEach((element, index) => {
+        this.datos.push( element.payload.doc.data());
+      });
+    });
+    console.log(this.datos);
+
   }
 
   getHorariosServicios() {
-    this.getData();
-    let res: any;
-    res = JSON.stringify(this.dataAbout.data.servicios);
-    this.dataView = res;
+    this.datos = [];
+    this._dataService.getServicios()
+    .subscribe( item => {
+      item.forEach((element, index) => {
+        this.datos.push( element.payload.doc.data());
+      });
+    });
+
+    console.log(this.datos);
   }
 }

@@ -1,62 +1,11 @@
 <div class="container">
-  <!-- <div [ngSwitch]="testData(data)">
-    <p *ngSwitchCase="true">
-      {{ data }}
-    </p>
 
-    <div *ngSwitchCase="4">
-
-      <p>
-        <strong>{{ data.cultoCentral.titulo}} : {{ data.cultoCentral.dia}} {{ data.cultoCentral.horario}} </strong>
-      </p>
-
-      <p>
-        <strong>{{ data.escuelaBiblica.titulo}} : {{ data.escuelaBiblica.dia}} {{ data.escuelaBiblica.horario}}
-        </strong>
-      </p>
-
-      <p>
-        <strong>{{ data.cultoJovenes.titulo}} : {{ data.cultoJovenes.dia}} {{ data.cultoJovenes.horario}} </strong>
-      </p>
-
-      <p>
-        <strong>{{ data.cultoOracion.titulo}} : {{ data.cultoOracion.dia}} {{ data.cultoOracion.horario}} </strong>
-      </p>
-
-    </div>
-
-    <div *ngSwitchCase="3">
-      <strong>{{ titulos[0] }}</strong>
-      <p>
-        {{ data.Mision}}
-      </p>
-
-      <strong>{{ titulos[2] }}</strong>
-      <p>
-        {{ data.Vision}}
-      </p>
-
-      <div>
-        <strong>{{ titulos[1] }}</strong>
-
-        <p *ngFor="let val of valores">
-          {{ val }}
-        </p>
-
-      </div>
-
-
-
-    </div>
-
-  </div> -->
-
-  <div *ngIf="dataType == 'string';else esObjeto">
+  <div>
     <p>{{data}}</p>
   </div>
 
-  <ng-template #esObjeto>
+  <!-- <ng-template #esObjeto>
     <p>{{testData()}}</p>
-  </ng-template>
+  </ng-template> -->
 
 </div>

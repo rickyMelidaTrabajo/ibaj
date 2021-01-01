@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { About } from '../models/about.interface';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { Nosotros } from '../models/nosotros.interface';
 
 
 @Injectable({
@@ -14,14 +16,7 @@ export class DataWebService {
 
   constructor(private _http: HttpClient, private firestore: AngularFirestore) { }
 
-  obtenerDatos(): About {
-    this._http.get('https://editoriales-ibpr.firebaseio.com/about.json')
-      .subscribe(res => {
-        this.dataAbout = res;
-      })
 
-    return this.dataAbout
-  }
 
   consejos(): any {
     this._http.get('https://editoriales-ibpr.firebaseio.com/consejos.json')
@@ -50,5 +45,25 @@ export class DataWebService {
 
   addPrayer(orderPrayer: any) {
     return this.firestore.collection('data').add(orderPrayer);
+  }
+
+  getNosotros(){
+    return this.firestore.collection('nosotros').snapshotChanges();
+  }
+
+  getObjetivos() {
+    return this.firestore.collection('objetivos').snapshotChanges();
+  }
+
+  getCreencias(){
+    return this.firestore.collection('creencias').snapshotChanges();
+  }
+
+  getConfesionFe()  {
+    return this.firestore.collection('declaracionDeFe').snapshotChanges();
+  }
+
+  getServicios() {
+    return this.firestore.collection('servicios').snapshotChanges();
   }
 }

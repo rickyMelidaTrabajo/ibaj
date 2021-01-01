@@ -20,7 +20,7 @@ export class ArticlesComponent implements OnInit {
 
   // cantArticles: number;
 
-  constructor(private dataBlog: DataWebService,) {  }
+  constructor(private dataBlog: DataWebService) {  }
 
   ngOnInit(): void {
     window.scroll(0,0);

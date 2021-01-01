@@ -20,9 +20,6 @@ export class AboutComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  getData() {
-    this.data.obtenerDatos();
-  }
 
   loader() {
     $('#container').waitMe({
