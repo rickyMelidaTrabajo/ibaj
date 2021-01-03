@@ -1,5 +1,5 @@
 <div class="container" >
-  <section class="articles" *ngFor="let article of articlesView">
+  <section class="articles" *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: p }">
     <div class="image">
       <img src="{{ article.urlImagen }}" alt="">
     </div>
@@ -19,6 +19,7 @@
 
     </div>
   </section>
-  <strong *ngIf="dataArticle != undefined">{{dataArticle.numArticles}} {{ refresh() }} </strong>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <!-- <strong *ngIf="dataArticle != undefined">{{dataArticle.numArticles}} {{ refresh() }} </strong> -->
 </div>
 

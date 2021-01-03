@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './pages/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
 import { BannerAboutComponent } from './components/about/banner-about/banner-about.component';
 import { ContentAboutComponent } from './components/about/content-about/content-about.component';
 import { CardActivitiesComponent } from './components/activities/card-activities/card-activities.component';
@@ -35,6 +34,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 
+//Paginacion
+import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,6 @@ import { environment } from 'src/environments/environment';
     ActivitiesComponent,
     FooterComponent,
     MenuComponent,
-    PaginationComponent,
     BlogComponent,
     PrayerMotiveComponent,
     HomeComponent,
@@ -66,7 +66,8 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

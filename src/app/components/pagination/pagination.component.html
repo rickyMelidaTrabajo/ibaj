@@ -1,9 +1,0 @@
-<div class="container">
-  <ol class="pagination">
-    <li><a name="previous" (click)="enviar($event)">«</a></li>
-    <li *ngFor="let n of addPage">
-      <a name="{{n}}" [ngClass]="{ 'active' : n === data.pageActual }" (click)="enviar($event)">{{ n }}</a>
-    </li>
-    <li><a name="next" (click)="enviar($event)">»</a></li>
-  </ol>
-</div>

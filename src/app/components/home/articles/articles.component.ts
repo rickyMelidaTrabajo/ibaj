@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Blog } from 'src/app/models/blog.interface';
 import { DataPagination } from 'src/app/models/data-pagination.interface';
 import { DataWebService } from 'src/app/services/data-web.service';
@@ -16,10 +16,12 @@ interface Data {
 export class ArticlesComponent implements OnInit {
 
   @Input() dataArticle: DataPagination;
+
   articles: Array<Blog> = new Array();
   articlesView: Array<Blog> = new Array();
   cantArticles: number;
   datos: Array<any>;
+  p: number = 1;
 
   constructor(private dataBlog: DataWebService) { }
 
@@ -39,32 +41,7 @@ export class ArticlesComponent implements OnInit {
       this.articles = this.datos[0].data;
       localStorage.removeItem('articles');
       localStorage.setItem('articles', JSON.stringify(this.articles));
-      this.dataView(this.cantArticles);
     }, 2000);
-
-  }
-
-
-  dataView(cantAricles: number) {
-    // let startView = (this.dataArticle.pageActual * this.cantArticles) + 1;
-    // let lastView = this.cantArticles * this.dataArticle.pageSolicitada;
-
-    for (let i = 0; i < cantAricles; i++) {
-      this.articlesView.push(this.articles[i]);
-    }
-
-    console.log(this.dataArticle);
-    // console.log(`Va a empezar desde el ${startView} hasta el ${lastView} `)
-  }
-
-  refresh() {
-
-    // console.log(`Va a mostrar desde ${startView} hasta ${lastView}`);
-    // for(let i=startView;i<=lastView;i++) {
-
-      // this.articlesView = new Array();
-      //this.articlesView.push(this.articles[i]);
-
 
   }
 }
