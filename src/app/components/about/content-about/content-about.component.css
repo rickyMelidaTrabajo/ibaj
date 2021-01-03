@@ -2,3 +2,48 @@
   width: 100%;
   height: auto;
 }
+
+/*-------------- Servicios ---------------------*/
+.all h5 {
+  font-size: 21px;
+}
+
+/*----------------------------------------------*/
+
+
+/*-------------- Servicios ---------------------*/
+.serv-title {
+  font-size: 18px;
+}
+
+.servicios{
+  margin-left: -30px;
+}
+
+.servicios ul li {
+  list-style: none;
+}
+
+.serv-item {
+  display: block;
+  padding-top: 10%;
+  font-weight: bold;
+}
+/*----------------------------------------------*/
+
+
+
+/*-------------- Objetivos ---------------------*/
+.valores {
+  margin: 15% 0;
+}
+.valores ul {
+  margin-left: -15%;
+}
+
+.valores ul li {
+  display: block;
+  text-align: center;
+  list-style: none;
+  padding: 2%;
+}

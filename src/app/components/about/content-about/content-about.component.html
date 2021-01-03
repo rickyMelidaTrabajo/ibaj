@@ -1,11 +1,56 @@
 <div class="container">
 
-  <div>
-    <p>{{data}}</p>
+
+  <div [ngSwitch]="testData(data)">
+
+    <div *ngSwitchCase="'all'" class="all">
+      <h5>{{ getAll(dataView) }}</h5>
+      <p> {{ getAll(dataView) }}</p>
+    </div>
+
+    <div *ngSwitchCase="'servicios'" class="servicios">
+      <ul>
+        <li class="serv-title"><strong>Horarios Reuniones</strong></li>
+        <li class="serv-item">{{ getServicios().cultoOracion.titulo }}</li>
+        <li>{{ getServicios().cultoOracion.dia }} {{ getServicios().cultoOracion.horario }}</li>
+
+        <li class="serv-item">{{ getServicios().cultoJovenes.titulo }}</li>
+        <li>{{ getServicios().cultoJovenes.dia }} {{ getServicios().cultoJovenes.horario }}</li>
+
+        <li class="serv-item">{{ getServicios().escuelaBiblica.titulo }}</li>
+        <li>{{ getServicios().escuelaBiblica.dia }} {{ getServicios().escuelaBiblica.horario }}</li>
+
+        <li class="serv-item">{{ getServicios().cultoCentral.titulo }}</li>
+        <li>{{ getServicios().cultoCentral.dia }} {{ getServicios().cultoCentral.horario }}</li>
+      </ul>
+    </div>
+
+    <div *ngSwitchCase="'objetivos'">
+      <div class="mision">
+        <h5>Misión</h5>
+        <p>
+          {{ getObjetivos(dataView).mision }}
+        </p>
+      </div>
+
+      <div class="vision">
+        <h5>Visión</h5>
+        <p>
+          {{ getObjetivos(dataView).vision }}
+        </p>
+      </div>
+
+      <div class="valores">
+        <h5>Valores</h5>
+        <ul>
+          <li *ngFor="let valor of getObjetivos(dataView).valores">
+            {{ valor }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <!-- <ng-template #esObjeto>
-    <p>{{testData()}}</p>
-  </ng-template> -->
+
 
 </div>

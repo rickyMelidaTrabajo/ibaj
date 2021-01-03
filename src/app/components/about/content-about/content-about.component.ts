@@ -10,19 +10,33 @@ import { Servicios } from 'src/app/models/servicios.interface';
 export class ContentAboutComponent implements OnInit {
 
   @Input() data: string;
-  servicios: Servicios;
-  misionVision: Objetivos;
   dataView: any;
-  dataType: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
+    // console.log(JSON.parse(this.data))
   }
 
-  tipoObjeto() {
-    this.dataType = typeof(this.data);
+  testData(data): string {
+    let res = JSON.parse(data);
+    this.dataView = res.data;
+
+    return res.dataType;
   }
+
+  getServicios(data:Servicios): Servicios {
+    return data;
+  }
+
+  getObjetivos(data: Objetivos): Objetivos {
+    return data;
+  }
+
+  getAll(data: string):string {
+    return data;
+  }
+
 
 
 }

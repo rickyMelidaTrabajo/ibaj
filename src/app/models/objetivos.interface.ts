@@ -1,5 +1,5 @@
 export interface Objetivos {
-  Mision: string;
-  Valores: Array<string>;
-  Vision: string;
+  mision: string;
+  valores: Array<string>;
+  vision: string;
 }

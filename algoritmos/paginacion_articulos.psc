@@ -23,6 +23,8 @@ Algoritmo sin_titulo
 		
 		Escribir "Se va a mostrar los articulos desde ", primerArticulo , " hasta ", ultimoArticulo
 		
+		Escribir "A que pagina vas a ir?"
+		
 	Hasta Que Falso
 	
 	
