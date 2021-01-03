@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Blog } from 'src/app/models/blog.interface';
+import { DataPagination } from 'src/app/models/data-pagination.interface';
 import { DataWebService } from 'src/app/services/data-web.service';
 
 interface Data {
@@ -14,38 +15,56 @@ interface Data {
 
 export class ArticlesComponent implements OnInit {
 
+  @Input() dataArticle: DataPagination;
   articles: Array<Blog> = new Array();
+  articlesView: Array<Blog> = new Array();
+  cantArticles: number;
   datos: Array<any>;
-  // articlesView: Array<Blog> = new Array();
 
-  // cantArticles: number;
-
-  constructor(private dataBlog: DataWebService) {  }
+  constructor(private dataBlog: DataWebService) { }
 
   ngOnInit(): void {
-    window.scroll(0,0);
+
+    this.cantArticles = 3;
+
     this.dataBlog.getArticles()
-    .subscribe(item => {
-      this.datos = [];
-      item.forEach((element, index) => {
-        this.datos.push( element.payload.doc.data())
+      .subscribe(item => {
+        this.datos = [];
+        item.forEach((element, index) => {
+          this.datos.push(element.payload.doc.data())
+        })
       })
-    })
 
     setTimeout(() => {
       this.articles = this.datos[0].data;
       localStorage.removeItem('articles');
       localStorage.setItem('articles', JSON.stringify(this.articles));
+      this.dataView(this.cantArticles);
     }, 2000);
+
   }
 
-  // numArticles(event) {
-  //   this.cantArticles = event.cantPaginas;
-  //   console.log(event);
-  // }
 
-  getData() {
-    this.articles = this.dataBlog.blog();
-    console.log(this.articles);
+  dataView(cantAricles: number) {
+    // let startView = (this.dataArticle.pageActual * this.cantArticles) + 1;
+    // let lastView = this.cantArticles * this.dataArticle.pageSolicitada;
+
+    for (let i = 0; i < cantAricles; i++) {
+      this.articlesView.push(this.articles[i]);
+    }
+
+    console.log(this.dataArticle);
+    // console.log(`Va a empezar desde el ${startView} hasta el ${lastView} `)
+  }
+
+  refresh() {
+
+    // console.log(`Va a mostrar desde ${startView} hasta ${lastView}`);
+    // for(let i=startView;i<=lastView;i++) {
+
+      // this.articlesView = new Array();
+      //this.articlesView.push(this.articles[i]);
+
+
   }
 }

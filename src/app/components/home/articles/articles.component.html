@@ -1,5 +1,5 @@
 <div class="container" >
-  <section class="articles" *ngFor="let article of articles">
+  <section class="articles" *ngFor="let article of articlesView">
     <div class="image">
       <img src="{{ article.urlImagen }}" alt="">
     </div>
@@ -19,7 +19,6 @@
 
     </div>
   </section>
-
-  <!-- <app-pagination [cantidadArticles]="articles.length" (mensajeHijo)="numArticles($event)"></app-pagination> -->
+  <strong *ngIf="dataArticle != undefined">{{dataArticle.numArticles}} {{ refresh() }} </strong>
 </div>
 
