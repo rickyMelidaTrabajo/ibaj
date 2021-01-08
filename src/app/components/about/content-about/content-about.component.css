@@ -3,9 +3,15 @@
   height: auto;
 }
 
+h5 {
+  font-size: 23px;
+  margin: 5px;
+}
+
 /*-------------- Servicios ---------------------*/
-.all h5 {
-  font-size: 21px;
+
+.all p {
+  font-size: 17px;
 }
 
 /*----------------------------------------------*/
@@ -13,7 +19,7 @@
 
 /*-------------- Servicios ---------------------*/
 .serv-title {
-  font-size: 18px;
+  font-size: 21px;
 }
 
 .servicios{
@@ -28,12 +34,17 @@
   display: block;
   padding-top: 10%;
   font-weight: bold;
+  font-size: 18px;
 }
 /*----------------------------------------------*/
 
 
 
 /*-------------- Objetivos ---------------------*/
+.objetivos p {
+  font-size: 17px;
+}
+
 .valores {
   margin: 15% 0;
 }

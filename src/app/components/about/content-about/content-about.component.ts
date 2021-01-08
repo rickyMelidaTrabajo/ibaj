@@ -11,16 +11,17 @@ export class ContentAboutComponent implements OnInit {
 
   @Input() data: string;
   dataView: any;
+  titulo: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    // console.log(JSON.parse(this.data))
   }
 
   testData(data): string {
     let res = JSON.parse(data);
     this.dataView = res.data;
+    this.titulo = res.titulo;
 
     return res.dataType;
   }

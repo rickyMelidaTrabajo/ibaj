@@ -31,7 +31,7 @@ export class AboutComponent implements OnInit {
 
     setTimeout(() => {
       $('#container').waitMe('hide');
-    }, 1000);
+    }, 2500);
   }
 
 }

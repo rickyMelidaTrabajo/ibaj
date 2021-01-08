@@ -9,8 +9,6 @@ import { element } from 'protractor';
   styleUrls: ['./banner-about.component.css']
 })
 export class BannerAboutComponent implements OnInit {
-
-
   dataAbout: any;
   dataView: any;
   datos: any;
@@ -21,64 +19,77 @@ export class BannerAboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   getMisionVision() {
     this._dataService.getObjetivos()
-    .subscribe( item => {
-      item.forEach((element, index) => {
-        this.datos = element.payload.doc.data();
-        localStorage.setItem('objetivos', JSON.stringify(this.datos));
+      .subscribe(item => {
+        item.forEach((element, index) => {
+          this.datos = element.payload.doc.data();
+        });
       });
-    });
 
-    this.dataView = localStorage.getItem('objetivos');
+    setTimeout(() => {
+      localStorage.setItem('objetivos', JSON.stringify(this.datos));
+      this.dataView = localStorage.getItem('objetivos');
+    }, 2000)
+
   }
 
   getNosotros() {
     this._dataService.getNosotros()
-    .subscribe( item => {
-      item.forEach((element, index) => {
-        this.datos = element.payload.doc.data();
-        localStorage.setItem('nosotros', JSON.stringify(this.datos));
+      .subscribe(item => {
+        item.forEach((element, index) => {
+          this.datos = element.payload.doc.data();
+        });
       });
-    });
 
-    this.dataView = localStorage.getItem('nosotros');
+    setTimeout(() => {
+      localStorage.setItem('nosotros', JSON.stringify(this.datos));
+      this.dataView = localStorage.getItem('nosotros');
+    }, 2000);
+
   }
 
   getCreencias() {
     this._dataService.getCreencias()
-    .subscribe( item => {
-      item.forEach((element, index) => {
-        this.datos = element.payload.doc.data();
-        localStorage.setItem('creencias', JSON.stringify(this.datos));
+      .subscribe(item => {
+        item.forEach((element, index) => {
+          this.datos = element.payload.doc.data();
+        });
       });
-    });
 
-    this.dataView = localStorage.getItem('creencias');
+    setTimeout(() => {
+      localStorage.setItem('creencias', JSON.stringify(this.datos));
+      this.dataView = localStorage.getItem('creencias');
+    }, 2000);
 
   }
 
   getConfesionFe() {
     this._dataService.getConfesionFe()
-    .subscribe( item => {
-      item.forEach((element, index) => {
-        this.datos = element.payload.doc.data();
-        localStorage.setItem('confesion', JSON.stringify(this.datos));
+      .subscribe(item => {
+        item.forEach((element, index) => {
+          this.datos = element.payload.doc.data();
+        });
       });
-    });
-    this.dataView = localStorage.getItem('confesion');
+
+    setTimeout(() => {
+      localStorage.setItem('confesion', JSON.stringify(this.datos));
+      this.dataView = localStorage.getItem('confesion');
+    }, 2000);
 
   }
 
   getHorariosServicios() {
     this._dataService.getServicios()
-    .subscribe( item => {
-      item.forEach((element, index) => {
-        this.datos = element.payload.doc.data();
-        localStorage.setItem('servicios', JSON.stringify(this.datos));
+      .subscribe(item => {
+        item.forEach((element, index) => {
+          this.datos = element.payload.doc.data();
+        });
       });
-    });
-    this.dataView = localStorage.getItem('confesion');
+
+    setTimeout(() => {
+      localStorage.setItem('servicios', JSON.stringify(this.datos));
+      this.dataView = localStorage.getItem('servicios');
+    }, 2000);
   }
 }

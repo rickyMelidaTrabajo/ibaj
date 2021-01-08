@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Blog } from 'src/app/models/blog.interface';
 import { DataPagination } from 'src/app/models/data-pagination.interface';
 import { DataWebService } from 'src/app/services/data-web.service';
+import { JsonPipe } from '@angular/common';
 
 interface Data {
   data: string;
@@ -20,7 +21,7 @@ export class ArticlesComponent implements OnInit {
   articles: Array<Blog> = new Array();
   articlesView: Array<Blog> = new Array();
   cantArticles: number;
-  datos: Array<any>;
+  datos: any;
   p: number = 1;
 
   constructor(private dataBlog: DataWebService) { }
@@ -28,20 +29,8 @@ export class ArticlesComponent implements OnInit {
   ngOnInit(): void {
 
     this.cantArticles = 3;
-
-    this.dataBlog.getArticles()
-      .subscribe(item => {
-        this.datos = [];
-        item.forEach((element, index) => {
-          this.datos.push(element.payload.doc.data())
-        })
-      })
-
-    setTimeout(() => {
-      this.articles = this.datos[0].data;
-      localStorage.removeItem('articles');
-      localStorage.setItem('articles', JSON.stringify(this.articles));
-    }, 2000);
-
+    setTimeout(()=>{
+      this.articles = JSON.parse(localStorage.getItem('articles'));
+    }, 3000);
   }
 }
