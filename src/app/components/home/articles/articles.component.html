@@ -1,6 +1,5 @@
 <div class="container" >
-  <!-- <section class="articles"> -->
-  <section class="articles" *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: p }">
+  <!-- <section class="articles" *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: p }">
     <div class="image">
       <img src="{{ article.urlImagen }}" alt="">
     </div>
@@ -19,10 +18,31 @@
       <span> {{ article.fecha }} </span>
 
     </div>
+  </section> -->
+  <section class="articles">
+
   </section>
+
   <div class="page">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
-  <!-- <strong *ngIf="dataArticle != undefined">{{dataArticle.numArticles}} {{ refresh() }} </strong> -->
+
+  <div class="versos">
+    <div>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
+    </div>
+
+    <div>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
+    </div>
+
+    <div>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
+    </div>
+
+    <div>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
+    </div>
+  </div>
 </div>
 

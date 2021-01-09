@@ -54,6 +54,10 @@
 
 }
 
+.versos {
+  display: none;
+}
+
 app-pagination {
   display: block;
   margin: auto;
@@ -62,6 +66,28 @@ app-pagination {
 
 /*---------------------- Tamaño escritorio y tablets-----------------------*/
 @media (min-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: .5fr .5fr;
+    grid-template-rows: 60vh 50px;
+  }
+  .articles {
+    /* overflow: scroll; */
+    margin: 0;
+    /* grid-column: 1 / 2;
+    grid-row: 1 / 1; */
+    background: red;
+  }
+
+  .versos {
+    display: initial;
+    background: green;
+  }
+
+  .page {
+    grid-column: span 2;
+  }
+
   .articles {
     width: 50%;
   }
