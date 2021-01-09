@@ -13,14 +13,14 @@ header h3 {
   color: #1e272e;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .banner {
   position: absolute;
   width: 200px;
   height: 100px;
   left: 50%;
-  animation: bannerUp  3s 1 forwards;
+  animation: bannerUp 3s 1 forwards;
   z-index: 50;
-
 }
 
 .banner p {
@@ -28,8 +28,6 @@ header h3 {
   font-size: 16px;
   font-weight: bold;
 }
-
-
 
 @keyframes titleDown {
   from {
@@ -55,3 +53,48 @@ header h3 {
   }
 }
 
+/*---------------------- Tamaño escritorio y tablets-----------------------*/
+@media (min-width: 1024px) {
+  header {
+    width: 70%;
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+
+  header h3 {
+    font-size: 1.8rem;
+  }
+
+  .banner {
+    width: 450px;
+  }
+
+  .banner p {
+    font-size: 1.5rem;
+  }
+
+  @keyframes titleDown {
+    from {
+      top: -20%;
+      transform: translate(-50%, 10%);
+    }
+
+    to {
+      top: 20%;
+      transform: translate(-50%, -15%);
+    }
+  }
+
+  @keyframes bannerUp {
+    from {
+      top: 130%;
+      transform: translate(-50%, 120%);
+    }
+
+    to {
+      top: 35%;
+      transform: translate(-50%, -25%);
+    }
+  }
+}

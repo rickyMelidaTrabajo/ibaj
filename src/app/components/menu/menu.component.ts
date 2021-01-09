@@ -17,23 +17,36 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     let btnMenu = document.querySelector('#menu');
     let haeder = document.querySelector('#header');
+    let main = document.querySelector('#main');
 
-    btnMenu.addEventListener('click', () => {
-      if (this.value) {
-        setTimeout(() => {
-          this.valueShowIconMenu = false;
-          haeder.classList.add('header');
-          haeder.classList.remove('ocultaHeader');
-        }, 850);
+    setTimeout(() => {
+
+      if (screen.width >= 1024) {
+        main.classList.remove('main');
+        main.classList.remove('ocultarMain');
+        main.classList.add('main-desktop');
+
+
       } else {
-        setTimeout(()=>{
 
-          this.valueShowIconMenu = true;
-          haeder.classList.add('ocultaHeader');
-          haeder.classList.remove('header');
-        }, 850);
+        btnMenu.addEventListener('click', () => {
+          if (this.value) {
+            setTimeout(() => {
+              this.valueShowIconMenu = false;
+              haeder.classList.add('header');
+              haeder.classList.remove('ocultaHeader');
+            }, 850);
+          } else {
+            setTimeout(() => {
+
+              this.valueShowIconMenu = true;
+              haeder.classList.add('ocultaHeader');
+              haeder.classList.remove('header');
+            }, 850);
+          }
+        });
       }
-    });
+    }, 100);
 
   }
 

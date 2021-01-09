@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataWebService } from '../../services/data-web.service';
 import { waitMe } from "waitme/waitMe";
 
 // Declaramos las variables para jQuery
@@ -13,10 +12,9 @@ declare var $: any;
 })
 export class CounselingComponent implements OnInit {
 
-  constructor( private _sale: DataWebService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this._sale.consejos());
     window.scrollTo(0, 0);
     this.loader();
 

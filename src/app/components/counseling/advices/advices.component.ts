@@ -9,20 +9,28 @@ import { Consejos } from '../../../models/consejos.interface';
 export class AdvicesComponent implements OnInit {
   consejos: Array<any> = [ 1, 2, 3, 4, 5 ];
   data: Array<Consejos>;
+  datos: any;
+  p: number = 1;
+
 
   constructor(private _data: DataWebService) {  }
 
   ngOnInit(): void {
+    this._data.getconsejos()
+      .subscribe(item => {
+        item.forEach((element, index) => {
+          this.datos = element.payload.doc.data();
+        });
+      });
+
     setTimeout(()=>{
       this.obtener();
     }, 2000);
   }
 
   obtener() {
-    this.data = this._data.consejos();
-    this.data.shift();
-    localStorage.removeItem('data');
-    localStorage.setItem('data', JSON.stringify(this.data));
+    this.data = this.datos.data;
+    localStorage.setItem('consejos', JSON.stringify(this.data));
   }
 
 }

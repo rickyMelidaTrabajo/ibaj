@@ -18,22 +18,17 @@ export class DataWebService {
 
 
 
-  consejos(): any {
-    this._http.get('https://editoriales-ibpr.firebaseio.com/consejos.json')
-      .subscribe(res => {
-        this.dataConsejos = res;
-      })
-
-    return this.dataConsejos;
+  getconsejos(){
+    return this.firestore.collection('consejos').snapshotChanges();
   }
 
-  blog(): any {
-    this._http.get('https://editoriales-ibpr.firebaseio.com/blog.json')
-      .subscribe(res => {
-        this.dataBlog = res;
-      })
-    return this.dataBlog;
-  }
+  // blog(): any {
+  //   this._http.get('https://editoriales-ibpr.firebaseio.com/blog.json')
+  //     .subscribe(res => {
+  //       this.dataBlog = res;
+  //     })
+  //   return this.dataBlog;
+  // }
 
   getData() {
     return this.firestore.collection('data').snapshotChanges();

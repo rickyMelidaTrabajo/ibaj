@@ -58,3 +58,21 @@ app-pagination {
   display: block;
   margin: auto;
 }
+
+
+/*---------------------- Tamaño escritorio y tablets-----------------------*/
+@media (min-width: 1024px) {
+  .articles {
+    width: 50%;
+  }
+
+  .image img {
+    width: 50%;
+  }
+
+  .container .page {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+}

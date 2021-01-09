@@ -40,12 +40,11 @@ input {
   padding: 5%;
   margin-left: -100%;
   z-index: 100;
-
 }
 
-.main ul li{
+.main ul li {
   list-style: none;
-  font-size: 18px ;
+  font-size: 18px;
   font-weight: bold;
   border-bottom: solid 1px #fff;
   padding: 5% 0;
@@ -75,7 +74,6 @@ input {
   animation: ocultar 1s 1 forwards;
 }
 
-
 .mostrarIconoMenu {
   display: none;
   transition: 1s all;
@@ -92,7 +90,6 @@ input {
   display: none;
 }
 
-
 @keyframes ocultar {
   from {
     margin-left: 0;
@@ -108,5 +105,45 @@ input {
   }
   to {
     margin-left: 0;
+  }
+}
+
+/*---------------------- Tamaño escritorio y tablets-----------------------*/
+@media (min-width: 1024px) {
+  .header {
+    padding-bottom: 4%;
+    opacity: .5;
+    margin-left: -5px;
+  }
+
+  label img {
+    display: none;
+  }
+
+  .main-desktop {
+    position: fixed;
+    z-index: 100;
+  }
+
+  .main-desktop ul {
+    margin: 3% 0%;
+  }
+
+  .main-desktop ul li {
+    display: inline;
+    margin: 0% 10px;
+    font-size: 21px;
+    font-weight: bold;
+    color: rgb(17, 14, 14);
+    transition: .5s all;
+  }
+
+  .main-desktop ul li:hover {
+    cursor: pointer;
+    color: rgb(17, 17, 17);
+    padding: 5px;
+    border-top: solid 1px rgb(19, 18, 18);
+    border-bottom: solid 1px rgb(19, 18, 18);
+    transition: .5s all;
   }
 }

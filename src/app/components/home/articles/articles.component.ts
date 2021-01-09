@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Blog } from 'src/app/models/blog.interface';
 import { DataPagination } from 'src/app/models/data-pagination.interface';
 import { DataWebService } from 'src/app/services/data-web.service';
-import { JsonPipe } from '@angular/common';
 
 interface Data {
   data: string;

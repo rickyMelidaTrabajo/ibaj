@@ -56,3 +56,47 @@ iframe {
   margin: 0 5%;
 }
 
+/*---------------------- Tamaño escritorio y tablets-----------------------*/
+@media (min-width: 1024px) {
+  footer {
+    display: grid;
+    /*Definimos el tamaño de las columnas*/
+    grid-template-columns: 0.5fr 0.5fr;
+    /*Definimos el tamaño de las filas*/
+    grid-template-rows: 0.8fr 100px 50px;
+    /*Definimos el espacio entre cada celda o grilla*/
+    grid-gap: 20px;
+  }
+
+  .redes {
+    grid-column: 1 / 3;
+    grid-row: 2 / 2;
+  }
+
+  span {
+    grid-column: 1 / 3;
+    grid-row: 3 / 3;
+    margin-bottom: -5%;
+  }
+
+  .info {
+    margin-left: 5%;
+  }
+
+  .info ul li {
+    font-size: 21px;
+  }
+
+  .redes a i{
+    font-size: 23px;
+    text-decoration: none;
+    margin: 2%;
+
+  }
+
+  iframe {
+    margin-top: 5%;
+    width: 70%;
+    height: 500px;
+  }
+}

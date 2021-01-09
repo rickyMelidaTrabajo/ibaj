@@ -16,14 +16,14 @@ export class CounselingDetailsComponent implements OnInit {
   constructor(private ruta: ActivatedRoute, private _data: DataWebService) { }
 
   ngOnInit(): void {
-    this.data = JSON.parse(localStorage.getItem('data'));
+    this.data = JSON.parse(localStorage.getItem('consejos'));
     this.obtener();
     window.scrollTo(0, 0);
   }
 
   obtener() {
     this.id = this.ruta.snapshot.params.id;
-    this.consejo = this.data[this.id-1];
+    this.consejo = this.data[this.id];
   }
 
 }

@@ -20,7 +20,9 @@
 
     </div>
   </section>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <div class="page">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
   <!-- <strong *ngIf="dataArticle != undefined">{{dataArticle.numArticles}} {{ refresh() }} </strong> -->
 </div>
 
