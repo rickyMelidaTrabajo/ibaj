@@ -1,48 +1,73 @@
-<div class="container" >
-  <!-- <section class="articles" *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: p }">
-    <div class="image">
-      <img src="{{ article.urlImagen }}" alt="">
-    </div>
-    <div class="content">
-
-      <div class="title">
-        <h4> {{ article.titulo }}  </h4>
+<div class="container">
+  <div class="articles" *ngIf="!sizeDesktop;else desktop">
+    <section *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: p }">
+      <div class="image">
+        <img src="{{ article.urlImagen }}" alt="">
       </div>
+      <div class="content">
 
-      <p class="text">
-        {{ article.texto }}
-      </p>
-      <a [routerLink]="['/blog', article.id]">leer mas..</a>
-      <cite> {{ article.autor }} </cite>
+        <div class="title">
+          <h4> {{ article.titulo }} </h4>
+        </div>
 
-      <span> {{ article.fecha }} </span>
+        <p class="text">
+          {{ article.texto }}
+        </p>
+        <a [routerLink]="['/blog', article.id]">leer mas..</a>
+        <cite> {{ article.autor }} </cite>
 
-    </div>
-  </section> -->
-  <section class="articles">
+        <span> {{ article.fecha }} </span>
 
-  </section>
-
-  <div class="page">
+      </div>
+    </section>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 
+  <ng-template #desktop>
+    <div class="articles">
+      <section *ngFor="let article of articles ">
+        <div class="content"
+          style="background-image:url({{article.urlImagen}});background-position: center;background-repeat: no-repeat;background-size: cover;">
+
+          <div class="title">
+            <h4> {{ article.titulo }} </h4>
+          </div>
+
+          <p class="text">
+            {{ article.texto }}
+          </p>
+          <a [routerLink]="['/blog', article.id]">leer mas..</a>
+          <cite> {{ article.autor }} </cite>
+
+          <span> {{ article.fecha }} </span>
+
+        </div>
+      </section>
+    </div>
+
+  </ng-template>
+
   <div class="versos">
-    <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-    </div>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam
+      asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
+      <br>
+      <cite>Pasaje 1:2</cite>
+    </p>
 
-    <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-    </div>
-
-    <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-    </div>
-
-    <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-    </div>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam
+      asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
+      <br>
+      <cite>Pasaje 1:2</cite>
+    </p>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam
+      asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
+      <br>
+      <cite>Pasaje 1:2</cite>
+    </p>
   </div>
-</div>
 
+
+</div>

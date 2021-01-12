@@ -22,10 +22,16 @@ export class ArticlesComponent implements OnInit {
   cantArticles: number;
   datos: any;
   p: number = 1;
+  sizeDesktop: boolean;
 
   constructor(private dataBlog: DataWebService) { }
 
   ngOnInit(): void {
+    this.sizeDesktop = false;
+
+    if(screen.width >= 1024) {
+      this.sizeDesktop = true
+    }
 
     this.cantArticles = 3;
     setTimeout(()=>{
