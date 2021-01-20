@@ -18,17 +18,9 @@ export class DataWebService {
 
 
 
-  getconsejos(){
+  getconsejos() {
     return this.firestore.collection('consejos').snapshotChanges();
   }
-
-  // blog(): any {
-  //   this._http.get('https://editoriales-ibpr.firebaseio.com/blog.json')
-  //     .subscribe(res => {
-  //       this.dataBlog = res;
-  //     })
-  //   return this.dataBlog;
-  // }
 
   getData() {
     return this.firestore.collection('data').snapshotChanges();
@@ -42,7 +34,7 @@ export class DataWebService {
     return this.firestore.collection('data').add(orderPrayer);
   }
 
-  getNosotros(){
+  getNosotros() {
     return this.firestore.collection('nosotros').snapshotChanges();
   }
 
@@ -50,15 +42,19 @@ export class DataWebService {
     return this.firestore.collection('objetivos').snapshotChanges();
   }
 
-  getCreencias(){
+  getCreencias() {
     return this.firestore.collection('creencias').snapshotChanges();
   }
 
-  getConfesionFe()  {
+  getConfesionFe() {
     return this.firestore.collection('declaracionDeFe').snapshotChanges();
   }
 
   getServicios() {
     return this.firestore.collection('servicios').snapshotChanges();
+  }
+
+  getVersiculos() {
+    return this.firestore.collection('versiculos').snapshotChanges();
   }
 }

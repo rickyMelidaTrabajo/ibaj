@@ -24,18 +24,32 @@ export class ArticlesComponent implements OnInit {
   p: number = 1;
   sizeDesktop: boolean;
 
-  constructor(private dataBlog: DataWebService) { }
+  constructor(private _service: DataWebService) { }
 
   ngOnInit(): void {
+
     this.sizeDesktop = false;
 
-    if(screen.width >= 1024) {
+    if (screen.width >= 1024) {
       this.sizeDesktop = true
     }
 
     this.cantArticles = 3;
-    setTimeout(()=>{
-      this.articles = JSON.parse(localStorage.getItem('articles'));
-    }, 3000);
+
+    this.getData()
+      .then(res => {
+        this.articles = res.data;
+      });
+
+  }
+
+  getData(): any {
+    return new Promise((resolve, reject) => {
+      this._service.getArticles().subscribe((item) => {
+        item.forEach(element => {
+          resolve(element.payload.doc.data());
+        });
+      });
+    });
   }
 }
