@@ -68,3 +68,9 @@ input[name="r"]{
 #r5:checked ~ .s1{
   margin-left: -80%;
 }
+
+@media(min-width: 1024px) {
+  .slidershow {
+    height: 85vh;
+  }
+}

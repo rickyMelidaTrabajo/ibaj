@@ -22,7 +22,7 @@ export class AboutComponent implements OnInit {
 
 
   loader() {
-    $('#container').waitMe({
+    $('#content').waitMe({
       effect: 'rotation',
       waitTime: -5,
       maxSize: 100,
@@ -30,7 +30,7 @@ export class AboutComponent implements OnInit {
     });
 
     setTimeout(() => {
-      $('#container').waitMe('hide');
+      $('#content').waitMe('hide');
     }, 2500);
   }
 
