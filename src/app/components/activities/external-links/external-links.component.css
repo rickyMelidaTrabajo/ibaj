@@ -1,0 +1,25 @@
+aside {
+  width: 100%;
+}
+
+section {
+  width: 70%;
+  margin: 0 20% 10% 5%;
+  padding: 5%;
+}
+
+section h3 {
+  font-size: 21px;
+  font-family: sans-serif;
+}
+
+section p {
+  font-size: 19px;
+}
+
+section a {
+  font-size: 17px;
+  text-decoration: none;
+}
+
+

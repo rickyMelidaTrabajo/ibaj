@@ -36,6 +36,7 @@ import { environment } from 'src/environments/environment';
 
 //Paginacion
 import { NgxPaginationModule } from "ngx-pagination";
+import { ExternalLinksComponent } from './components/activities/external-links/external-links.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { NgxPaginationModule } from "ngx-pagination";
     ArticlesComponent,
     SlideshowMainComponent,
     DetailsComponent,
-    CounselingDetailsComponent
+    CounselingDetailsComponent,
+    ExternalLinksComponent
   ],
   imports: [
     BrowserModule,

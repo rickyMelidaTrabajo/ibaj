@@ -1,7 +1,6 @@
 .container {
   width: 100%;
   height: auto;
-
 }
 
 .card {
@@ -40,4 +39,20 @@
   margin: 5% 0;
   font-size: 16px;
   font-weight: bold;
+}
+
+
+@media(min-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+
+  .card {
+    width: 60%;
+    margin: 5% 20%;
+  }
+
+  .card:first-child {
+    margin: 0px 20%;
+  }
 }
