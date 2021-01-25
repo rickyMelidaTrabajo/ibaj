@@ -55,4 +55,8 @@
   .card:first-child {
     margin: 0px 20%;
   }
+
+  .controls {
+    margin: 0 33%;
+  }
 }

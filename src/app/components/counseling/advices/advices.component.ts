@@ -16,21 +16,25 @@ export class AdvicesComponent implements OnInit {
   constructor(private _data: DataWebService) {  }
 
   ngOnInit(): void {
-    this._data.getconsejos()
-      .subscribe(item => {
-        item.forEach((element, index) => {
-          this.datos = element.payload.doc.data();
-        });
-      });
+    this.getData()
+    .then(res => {
+      this.data = res.data;
+    })
 
-    setTimeout(()=>{
-      this.obtener();
-    }, 2000);
   }
 
-  obtener() {
-    this.data = this.datos.data;
-    localStorage.setItem('consejos', JSON.stringify(this.data));
+  getData():any {
+    // this.data = this.datos.data;
+    // localStorage.setItem('consejos', JSON.stringify(this.data));
+    return new Promise((resolve, reject)=>{
+      this._data.getconsejos()
+      .subscribe(item => {
+        item.forEach((element, index) => {
+          resolve(element.payload.doc.data());
+        });
+      });
+    });
+
   }
 
 }

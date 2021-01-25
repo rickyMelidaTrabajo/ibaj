@@ -38,3 +38,12 @@
   margin-top: -5px;
   font-size: 14px;
 }
+
+
+@media(min-width: 1024px) {
+  .consejo{
+    width: 40%;
+    margin: 15% auto;
+  }
+
+}

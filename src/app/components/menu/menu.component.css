@@ -113,8 +113,12 @@ input {
   .header {
     padding-bottom: 4%;
     opacity: .5;
-    margin-left: -5px;
+    margin-left: -10px;
+    margin-top: -10px;
+    background: rgb(0, 0, 0);
+    height: 3%;
   }
+
 
   label img {
     display: none;
@@ -123,6 +127,7 @@ input {
   .main-desktop {
     position: fixed;
     z-index: 100;
+    /* margin-top: -10%; */
   }
 
   .main-desktop ul {
@@ -134,16 +139,16 @@ input {
     margin: 0% 10px;
     font-size: 21px;
     font-weight: bold;
-    color: rgb(17, 14, 14);
+    color: rgb(145, 143, 143);
     transition: .5s all;
   }
 
   .main-desktop ul li:hover {
     cursor: pointer;
-    color: rgb(17, 17, 17);
+    color: rgb(255, 255, 255);
     padding: 5px;
-    border-top: solid 1px rgb(19, 18, 18);
-    border-bottom: solid 1px rgb(19, 18, 18);
+    border-top: solid 1px rgb(255, 255, 255);
+    border-bottom: solid 1px rgb(255, 255, 255);
     transition: .5s all;
   }
 }

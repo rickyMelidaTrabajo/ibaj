@@ -60,6 +60,7 @@ export class CardActivitiesComponent implements OnInit {
 
     },
   ];
+  p: number = 1;
   constructor() { }
 
   ngOnInit(): void {
