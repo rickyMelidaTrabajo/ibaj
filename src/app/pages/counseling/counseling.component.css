@@ -1,6 +1,23 @@
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
+.aside {
+  display: none;
 }
 
+@media(min-width: 1024px) {
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aside {
+    display: initial;
+    margin-top: 20%;
+  }
+
+}

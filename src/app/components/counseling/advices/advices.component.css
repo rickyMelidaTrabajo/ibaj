@@ -41,9 +41,14 @@
 
 
 @media(min-width: 1024px) {
+  .consejo:first-child{
+    width: 40%;
+    margin: 23% auto 2% auto;
+  }
+
   .consejo{
     width: 40%;
-    margin: 15% auto;
+    margin: 5% auto 5% auto;
   }
 
 }

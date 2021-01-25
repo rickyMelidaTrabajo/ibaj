@@ -36,11 +36,12 @@
 
   .banner .content .title {
     text-align: right;
-    font-size: 28px;
+    font-size: 2.8rem;
   }
 
   .banner .content .versiculo {
     font-weight: bold;
+    font-size: 1.4rem;
   }
 
 
