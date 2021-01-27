@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="consejo" *ngFor="let consejo of data | paginate: { itemsPerPage: 3, currentPage: p }">
+  <div class="consejo" *ngFor="let consejo of data | paginate: { itemsPerPage: 2, currentPage: p }">
     <div class="image">
       <img src="{{ consejo.urlImagen }}" alt="">
     </div>
@@ -12,5 +12,7 @@
       <cite>Autor: {{ consejo.autor }}</cite>
     </div>
   </div>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <div class="control" id="control">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
 </div>

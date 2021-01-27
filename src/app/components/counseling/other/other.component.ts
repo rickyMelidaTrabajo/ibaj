@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class OtherComponent implements OnInit {
 
   constructor() { }
-
+  p: any = [ {} ,{},{}, {} ];
   ngOnInit(): void {
   }
 

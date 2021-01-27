@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Activities } from 'src/app/models/activities.interface';
+import { waitMe } from "waitme/waitMe";
+
+// Declaramos las variables para jQuery
+declare var jQuery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-card-activities',
@@ -61,9 +66,27 @@ export class CardActivitiesComponent implements OnInit {
     },
   ];
   p: number = 1;
+  pagination: any;
   constructor() { }
 
   ngOnInit(): void {
+
+    this.pagination = document.querySelector('#control');
+    document.getElementById('container').addEventListener('click', this.loader);
   }
 
+
+  loader() {
+    $('#container').waitMe({
+      effect: 'rotation',
+      waitTime: -5,
+      maxSize: 100,
+      onClose: function () { }
+    });
+
+    setTimeout(() => {
+      $('#container').waitMe('hide');
+      window.scrollTo(0, 400);
+    }, 1500);
+  }
 }

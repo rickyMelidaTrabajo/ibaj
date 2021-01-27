@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="card" *ngFor="let activity of activities | paginate: { itemsPerPage: 3, currentPage:p }">
+<div class="container" id="container">
+  <div class="card" *ngFor="let activity of activities | paginate: { itemsPerPage: 2, currentPage:p }">
     <div class="card-img">
       <img src="{{activity.imagen}}" alt="">
     </div>
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="controls">
+  <div class="controls" id="control">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

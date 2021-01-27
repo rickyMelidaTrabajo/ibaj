@@ -2,13 +2,18 @@
   width: 100%;
   margin-bottom: 5%;
 }
+
 .container .banner {
   width: 100%;
   height: 100vh;
-  background: url("/assets/imagenes/oracion.jpg") no-repeat center;
+  background: url("/assets/imagenes/oracion_2.jpg") no-repeat center;
   background-size: cover;
   background-attachment: fixed;
   opacity: 0.5;
+}
+
+.container .banner-2 {
+  display: none;
 }
 
 .versiculo {
@@ -16,7 +21,6 @@
   top: 20%;
   left: 8%;
   width: 300px;
-  /* background: red; */
   text-align: center;
 }
 
@@ -50,15 +54,12 @@ h3 {
   margin: 15px auto;
 }
 
-.form-group label {
-  display: block;
-  font-size: 18px;
-  color: #222;
-}
 
-.form-group input, textarea {
+
+.form-group input,
+textarea {
   width: 100%;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .form-group input {
@@ -67,7 +68,108 @@ h3 {
 
 form button {
   width: 100%;
-  height: 35px;
+  height: 50px;
   font-size: 21px;
-  border-radius: 13px;
+  border-radius: 7px;
+  background: rgb(0, 0, 0);
+  opacity: .5;
+  color: aliceblue;
+}
+
+.other-vers {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .versiculo {
+    left: 35%;
+  }
+
+  .container .banner-2 {
+    display: block;
+    width: 100%;
+    height: 120vh;
+    background: url("/assets/imagenes/oracion.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5;
+  }
+
+  .texto {
+    width: 600px;
+    position: absolute;
+    top: 80vh;
+    left: 20%;
+    font-size: 28px;
+    margin: auto;
+    font-family: Perpetua;
+  }
+
+  .other-vers {
+    display: block;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+  }
+
+  form {
+    width: 70%;
+  }
+
+  .form-group input,
+  textarea {
+    width: 100%;
+    border: 0.7px solid rgb(39, 39, 39);
+    border-radius: 5px;
+  }
+
+  .form-group input {
+    height: 40px;
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
+    padding: 2%;
+  }
+
+
+  /*------------Placeholder ---------------------*/
+  .form-group input,
+  textarea::-webkit-input-placeholder {
+    font-family: Garamond;
+    font-size: 21px;
+    padding: 10px;
+  }
+
+  .form-group input,
+  textarea:-moz-placeholder {
+    /* Firefox 18- */
+    font-family: Garamond;
+    font-size: 21px;
+    padding: 10px;
+  }
+
+  .form-group input,
+  textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    font-family: Garamond;
+    font-size: 21px;
+    padding: 10px;
+  }
+
+  .form-group input,
+  textarea:-ms-input-placeholder {
+    font-family: Garamond;
+    font-size: 21px;
+    padding: 10px;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+  }
 }

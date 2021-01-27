@@ -42,13 +42,25 @@
 
 @media(min-width: 1024px) {
   .consejo:first-child{
-    width: 40%;
-    margin: 23% auto 2% auto;
+    width: 50%;
+    margin: 24% auto 2% auto;
   }
 
   .consejo{
-    width: 40%;
+    width: 50%;
     margin: 5% auto 5% auto;
+  }
+
+  .consejo .des-consejo {
+    margin: 5% auto;
+    color: #8c4966;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  .control {
+    margin: 0 30%;
   }
 
 }

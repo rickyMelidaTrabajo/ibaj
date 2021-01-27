@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataWebService } from "../../../services/data-web.service";
 import { Consejos } from '../../../models/consejos.interface';
+import { waitMe } from "waitme/waitMe";
+
+// Declaramos las variables para jQuery
+declare var jQuery: any;
+declare var $: any;
+
+
 @Component({
   selector: 'app-advices',
   templateUrl: './advices.component.html',
@@ -11,7 +18,7 @@ export class AdvicesComponent implements OnInit {
   data: Array<Consejos>;
   datos: any;
   p: number = 1;
-
+  pagination: any;
 
   constructor(private _data: DataWebService) {  }
 
@@ -20,6 +27,12 @@ export class AdvicesComponent implements OnInit {
     .then(res => {
       this.data = res.data;
     })
+    .catch(error =>{
+      console.log(error);
+    });
+
+    this.pagination = document.querySelector('#control');
+    this.pagination.addEventListener('click', this.loader);
 
   }
 
@@ -35,6 +48,20 @@ export class AdvicesComponent implements OnInit {
       });
     });
 
+  }
+
+  loader() {
+    $('#container').waitMe({
+      effect: 'rotation',
+      waitTime: -5,
+      maxSize: 100,
+      onClose: function () { }
+    });
+
+    setTimeout(() => {
+      $('#container').waitMe('hide');
+      window.scrollTo(0, 700);
+    }, 1500);
   }
 
 }
