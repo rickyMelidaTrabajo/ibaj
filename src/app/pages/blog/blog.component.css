@@ -1,22 +1,28 @@
-.container  {
+.header {
   width: 100%;
-  margin-top: 10%;
+  margin-top: -10%;
+  padding-top: 10%;
 }
 
-.container .blog {
+.container  {
+  width: 100%;
+}
+
+.container .article {
+  margin: 5% 0;
   width: 80%;
   padding: 10%;
 }
 
-.container .blog .titulo {
+section h3 {
   text-align: center;
 }
 
-.blog .image img {
+section .img img {
   width: 100%;
 }
 
-.blog .text {
+section p {
   height: auto;
   font-size: 1.5rem;
   font-family: 'Roboto Slab',serif;
@@ -25,3 +31,18 @@
 }
 
 
+/*------------------ Formulario -------------------------*/
+/*---------------------------------------------------------*/
+
+form {
+  width: 80%;
+  margin: 20% 0;
+}
+
+
+/*------------------ Otros Articulos -------------------------*/
+/*---------------------------------------------------------*/
+.other {
+  width: 90%;
+  margin: 20% auto;
+}

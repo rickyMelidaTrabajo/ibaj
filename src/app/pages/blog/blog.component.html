@@ -1,44 +1,40 @@
-<app-menu></app-menu>
+<div class="header">
+  <app-menu></app-menu>
+</div>
+
 <div class="container">
-
-  <div *ngIf="all; else one">
-
-    <div class="blog" *ngFor="let article of allData">
-      <hr>
-      <div class="titulo">
-        <h3>{{ article.titulo }}</h3>
+  <div class="article">
+    <section>
+      <h3>Titulo</h3>
+      <div class="img">
+        <img src="/assets/imagenes/oracion.jpg" alt="" srcset="">
       </div>
-      <hr>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit deleniti totam, id sit harum nihil dolorem! Vel libero ad earum itaque. Dignissimos magni facilis accusamus labore qui consectetur nesciunt accusantium.
+      </p>
 
-      <div class="image">
-        <img src="{{ article.urlImagen }}" alt="">
+      <em>Titulo</em>
+    </section>
+
+    <form>
+      <div class="form-group">
+        <textarea name="" id="" cols="30" rows="10" placeholder="Comentario.."></textarea>
       </div>
-      <div class="text">
-        <p>
-          {{ article.texto }}
-        </p>
+      <div class="form-group">
+        <input type="text" name="" id="" placeholder="Nombre">
       </div>
-    </div>
+      <button>Enviar</button>
+    </form>
   </div>
 
-  <ng-template #one>
-    <div class="blog all">
+  <div class="other">
+    <h3>Titulo</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit deleniti totam, id sit harum nihil dolorem! Vel libero ad earum itaque. Dignissimos magni facilis accusamus labore qui consectetur nesciunt accusantium.
+      </p>
 
-      <hr>
-      <div class="titulo" (click)="getData()">
-        <h3>{{ data.titulo }}</h3>
-      </div>
-      <hr>
-
-      <div class="image">
-        <img src="{{ data.urlImagen }}" alt="">
-      </div>
-      <div class="text">
-        <p>
-          {{ data.texto }}
-        </p>
-      </div>
-    </div>
-  </ng-template>
-  <app-footer></app-footer>
+      <a href="#">Ver mas</a>
+  </div>
 </div>
+<app-footer></app-footer>
+

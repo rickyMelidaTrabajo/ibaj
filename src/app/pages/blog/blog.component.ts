@@ -20,26 +20,22 @@ export class BlogComponent implements OnInit {
   constructor(private dataBlog: DataWebService, private ruta: ActivatedRoute) { }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
     this.id = this.ruta.snapshot.params.id;
-    this.getData();
+    this.getData()
+    .then(res=>{
+      this.articles = res.data;
+
+    });
   }
 
-  getData() {
-
-    if (this.id === 'n') {
-      this.articles = JSON.parse(localStorage.getItem('articles'));
-
-      this.all = true;
-      this.allData = this.articles;
-
-    } else {
-      this.articles = JSON.parse(localStorage.getItem('articles'));
-
-      this.all = false;
-      this.data = this.articles[this.id];
-
-    }
+  getData(): any {
+    return new Promise((resolve, reject) => {
+      this.dataBlog.getArticles().subscribe((item) => {
+        item.forEach(element => {
+          resolve(element.payload.doc.data());
+        });
+      });
+    });
   }
 
 }
