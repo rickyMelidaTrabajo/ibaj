@@ -57,4 +57,5 @@ export class DataWebService {
   getVersiculos() {
     return this.firestore.collection('versiculos').snapshotChanges();
   }
+
 }

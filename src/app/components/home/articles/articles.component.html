@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="container">
   <div class="articles" *ngIf="!sizeDesktop;else desktop">
     <section *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: p }">
       <div class="image">
@@ -48,25 +48,13 @@
   </ng-template>
 
   <div class="versos">
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam
-      asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-      <br>
-      <cite>Pasaje 1:2</cite>
-    </p>
+    <div *ngFor="let versiculo of versos">
 
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam
-      asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-      <br>
-      <cite>Pasaje 1:2</cite>
-    </p>
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus numquam
-      asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-      <br>
-      <cite>Pasaje 1:2</cite>
-    </p>
+      <p>
+        {{ versiculo.versiculo }} <br>
+        <cite> {{ versiculo.pasaje }}</cite>
+      </p>
+    </div>
   </div>
 
 

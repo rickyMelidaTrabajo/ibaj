@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit {
     setTimeout(()=>{
       this.articles = this.datos.data;
       localStorage.setItem('articles', JSON.stringify(this.articles));
-      console.log(this.articles[0].versiculo);
 
       this.pageActive = 1;
       this.articles = JSON.parse(localStorage.getItem('articles'));
