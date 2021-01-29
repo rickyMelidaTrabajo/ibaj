@@ -90,12 +90,52 @@ cite {
 @media (min-width: 1024px) {
   .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 1.4fr 0.6fr ;
+    grid-template-rows: 1fr auto;
+  }
+
+  .container .article {
+    margin: 5% 20%;
+  }
+
+  .article section {
+    width: 65%;
+  }
+
+  form {
+    width: 70%;
+    margin-left: 0;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  .comments {
+    grid-area: 2 / 1 / 2 / -1;
+    background: rgba(200, 236, 245, 0.333);
+    width: 100%;
+    padding: 8% 0;
+    margin-top: -15%;
+  }
+
+  .comment {
+    width: 40%;
+    padding: 3% 0;
+    margin-left: 20%;
   }
 
   .other {
     grid-area: 1 / 2 / 2 / 2;
     grid-row: 1 / span 2;
+    padding: 25% 10% 0 0;
+  }
+
+  .other-articles {
+    width: 60%;
+  }
+
+  .footer {
+    margin-top: -10%;
   }
 }
