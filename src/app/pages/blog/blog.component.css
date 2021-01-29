@@ -4,8 +4,9 @@
   padding-top: 10%;
 }
 
-.container  {
+.container {
   width: 100%;
+  font-family: "Lucida Bright";
 }
 
 .container .article {
@@ -25,24 +26,76 @@ section .img img {
 section p {
   height: auto;
   font-size: 1.5rem;
-  font-family: 'Roboto Slab',serif;
+  font-family: "Roboto Slab", serif;
   font-weight: 315;
   line-height: 1.625;
 }
-
 
 /*------------------ Formulario -------------------------*/
 /*---------------------------------------------------------*/
 
 form {
-  width: 80%;
-  margin: 20% 0;
+  width: 100%;
+  margin: 15% auto;
 }
 
+.form-group {
+  width: 90%;
+  margin: 15px auto;
+}
+
+.form-group textarea,
+input {
+  width: 90%;
+  border-radius: 5px;
+}
+
+.form-group input {
+  height: 30px;
+}
+
+.form-group button {
+  width: 90%;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+/*------------------ Comentarios -------------------------*/
+/*---------------------------------------------------------*/
+.comment {
+  width: 60%;
+  margin: auto;
+}
+
+.comment em,
+cite {
+  display: block;
+  padding-bottom: 10px;
+}
 
 /*------------------ Otros Articulos -------------------------*/
 /*---------------------------------------------------------*/
 .other {
   width: 90%;
   margin: 20% auto;
+}
+
+.other-articles {
+  margin: 5% 10% 10%;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  .other {
+    grid-area: 1 / 2 / 2 / 2;
+    grid-row: 1 / span 2;
+  }
 }
