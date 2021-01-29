@@ -64,7 +64,11 @@
 @media (min-width: 1024px) {
   .container .header {
     height: auto;
-    padding-top: 10%;
+    padding-top: 5%;
+  }
+
+  .container .header h3 {
+    margin-top: 3%;
   }
 
   .grillas {
@@ -74,5 +78,20 @@
 
   .grillas div {
     padding: 5%;
+  }
+
+  .select {
+    background: rgb(70, 69, 69);
+    color: #fff;
+  }
+
+  .item {
+    transition: 0.5s all;
+  }
+
+  .item:hover {
+    cursor: pointer;
+    background: rgb(70, 69, 69);
+    color: #fff;
   }
 }

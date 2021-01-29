@@ -69,20 +69,29 @@ app-pagination {
 @media (min-width: 1024px) {
   .container {
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-columns: 0.7fr 0.3fr;
     grid-template-rows: 100vh;
+  }
+
+  .articles section{
+    width: 70%;
+    height: 45vh;
   }
   .articles {
     overflow: scroll;
     margin: 0 5%;
-    border: 1px solid #555;
+    /* border: 0.5px solid #555; */
+  }
+
+  .content {
+    height: 100%;
   }
 
   .versos {
     display: initial;
     overflow: scroll;
-    background: rgba(177, 180, 177, .3);
-    margin: 0 5%;
+    /* background: rgba(177, 180, 177, .3); */
+    margin: 10% 5%;
   }
 
   .versos::-webkit-scrollbar {
