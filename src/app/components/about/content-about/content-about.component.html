@@ -11,17 +11,33 @@
       <div *ngSwitchCase="'servicios'" class="servicios">
         <ul>
           <li class="serv-title"><strong>Horarios Reuniones</strong></li>
-          <li class="serv-item">{{ getServicios(dataView).cultoOracion.titulo }}</li>
-          <li>{{ getServicios(dataView).cultoOracion.dia }} {{ getServicios(dataView).cultoOracion.horario }}</li>
+          <li class="serv-item">
+            {{ getServicios(dataView).cultoOracion.titulo }}
+          </li>
+          <li class="item">
+            {{ getServicios(dataView).cultoOracion.dia }} {{ getServicios(dataView).cultoOracion.horario }}
+          </li>
 
-          <li class="serv-item">{{ getServicios(dataView).cultoJovenes.titulo }}</li>
-          <li>{{ getServicios(dataView).cultoJovenes.dia }} {{ getServicios(dataView).cultoJovenes.horario }}</li>
+          <li class="serv-item">
+            {{ getServicios(dataView).cultoJovenes.titulo }}
+          </li>
+          <li class="item">
+            {{ getServicios(dataView).cultoJovenes.dia }} {{ getServicios(dataView).cultoJovenes.horario }}
+          </li>
 
-          <li class="serv-item">{{ getServicios(dataView).escuelaBiblica.titulo }}</li>
-          <li>{{ getServicios(dataView).escuelaBiblica.dia }} {{ getServicios(dataView).escuelaBiblica.horario }}</li>
+          <li class="serv-item">
+            {{ getServicios(dataView).escuelaBiblica.titulo }}
+          </li>
+          <li class="item">
+            {{ getServicios(dataView).escuelaBiblica.dia }} {{ getServicios(dataView).escuelaBiblica.horario }}
+          </li>
 
-          <li class="serv-item">{{ getServicios(dataView).cultoCentral.titulo }}</li>
-          <li>{{ getServicios(dataView).cultoCentral.dia }} {{ getServicios(dataView).cultoCentral.horario }}</li>
+          <li class="serv-item">
+            {{ getServicios(dataView).cultoCentral.titulo }}
+          </li>
+          <li class="item">
+            {{ getServicios(dataView).cultoCentral.dia }} {{ getServicios(dataView).cultoCentral.horario }}
+          </li>
         </ul>
       </div>
 
@@ -43,7 +59,7 @@
         <div class="valores">
           <h5>Valores</h5>
           <ul>
-            <li *ngFor="let valor of getObjetivos(dataView).valores">
+            <li class="item" *ngFor="let valor of getObjetivos(dataView).valores">
               {{ valor }}
             </li>
           </ul>
@@ -52,9 +68,5 @@
     </div>
 
   </div>
-
-  <!-- <ng-template #hayDato>
-    <h1>Noo sale</h1>
-  </ng-template> -->
 
 </div>

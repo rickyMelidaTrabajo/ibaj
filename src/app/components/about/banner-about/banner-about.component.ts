@@ -19,7 +19,9 @@ export class BannerAboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemSelect = document.querySelectorAll('.item');
+    this.getNosotros();
   }
+
   getNosotros() {
     this._dataService.getNosotros()
       .subscribe(item => {

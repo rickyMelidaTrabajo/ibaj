@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   height: auto;
+  font-family: Perpetua;
 }
 
 h5 {
@@ -11,10 +12,8 @@ h5 {
 /*-------------- Servicios ---------------------*/
 
 .all p {
-  font-size: 17px;
+  font-size: 21px;
 }
-
-/*----------------------------------------------*/
 
 
 /*-------------- Servicios ---------------------*/
@@ -36,25 +35,66 @@ h5 {
   font-weight: bold;
   font-size: 18px;
 }
-/*----------------------------------------------*/
-
-
 
 /*-------------- Objetivos ---------------------*/
+
 .objetivos p {
   font-size: 17px;
 }
 
-.valores {
-  margin: 15% 0;
-}
 .valores ul {
-  margin-left: -15%;
+  padding: 0;
 }
 
 .valores ul li {
   display: block;
   text-align: center;
   list-style: none;
-  padding: 2%;
+  padding: 3%;
+}
+
+@media(min-width: 1024px) {
+  .all p {
+    margin: auto;
+    width: 80%;
+  }
+
+  h5 {
+    font-size: 26px;
+    margin: 15px;
+  }
+
+  /*-------------- Servicios ---------------------*/
+
+  .all p {
+    font-size: 23px;
+  }
+
+  /*----------------------------------------------*/
+
+  .objetivos {
+    width: 80%;
+    margin: auto;
+  }
+
+  .objetivos p {
+    font-size: 21px;
+  }
+
+  .valores ul li {
+    display: block;
+    text-align: center;
+  }
+  /*-------------- Servicios ---------------------*/
+  .serv-title {
+    font-size: 26px;
+  }
+
+  .serv-item {
+    font-size: 24px;
+  }
+
+  .item {
+    font-size: 21px;
+  }
 }

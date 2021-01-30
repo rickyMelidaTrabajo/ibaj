@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataWebService } from 'src/app/services/data-web.service';
+import { waitMe } from "waitme/waitMe";
+
+// Declaramos las variables para jQuery
+declare var jQuery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-prayer-motive',
@@ -17,10 +22,24 @@ export class PrayerMotiveComponent implements OnInit {
   constructor(private _prayerService: DataWebService) { }
 
   ngOnInit(): void {
+    this.loader();
   }
 
   addData() {
     this._prayerService.addPrayer(this.data);
+  }
+
+  loader() {
+    $('#container').waitMe({
+      effect: 'rotation',
+      waitTime: -5,
+      maxSize: 100,
+      onClose: function () { }
+    });
+
+    setTimeout(() => {
+      $('#container').waitMe('hide');
+    }, 3000);
   }
 
 }

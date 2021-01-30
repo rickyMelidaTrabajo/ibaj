@@ -10,6 +10,7 @@ import { CounselingDetailsComponent } from './pages/counseling-details/counselin
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'nosotros', component: AboutComponent },
   { path: 'actividades', component: ActivitiesComponent },
   { path: 'blog/:id', component: BlogComponent },

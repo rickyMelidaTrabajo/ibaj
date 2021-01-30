@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { waitMe } from "waitme/waitMe";
 
-// Declaramos las variables para jQuery
-declare var jQuery: any;
-declare var $: any;
 
 @Component({
   selector: 'app-counseling',
@@ -16,21 +12,8 @@ export class CounselingComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    this.loader();
-
   }
 
-  loader() {
-    $('#container').waitMe({
-      effect: 'rotation',
-      waitTime: -5,
-      maxSize: 100,
-      onClose: function () { }
-    });
 
-    setTimeout(() => {
-      $('#container').waitMe('hide');
-    }, 3000);
-  }
 
 }

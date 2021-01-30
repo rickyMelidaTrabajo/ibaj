@@ -19,12 +19,12 @@
     ocultarIconClose : !value
   }'>X</label>
   <ul>
-    <li routerLink="/">Home</li>
-    <li routerLink="/nosotros">Nosotros</li>
-    <li routerLink="/actividades">Actividades</li>
-    <li routerLink="/consejeria">Consejería</li>
-    <li routerLink="/intercesion">Motivos de Oración</li>
-    <li [routerLink]="['/blog', 'n']">Blog</li>
+    <li routerLink="/home" [routerLinkActive]="['active']">Home</li>
+    <li routerLink="/nosotros" [routerLinkActive]="['active']">Nosotros</li>
+    <li routerLink="/actividades" [routerLinkActive]="['active']">Actividades</li>
+    <li routerLink="/consejeria" [routerLinkActive]="['active']">Consejería</li>
+    <li routerLink="/intercesion" [routerLinkActive]="['active']">Motivos de Oración</li>
+    <li [routerLink]="['/blog', 'n']" [routerLinkActive]="['active']">Blog</li>
     <li>Radio</li>
   </ul>
 </div>

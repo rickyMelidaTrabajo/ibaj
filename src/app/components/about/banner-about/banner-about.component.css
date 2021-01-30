@@ -1,9 +1,8 @@
 .container {
   width: 100%;
-  height: 120vh;
+  /* height: 100%; */
 }
-
-.container .header {
+.header {
   width: 100%;
   height: 30%;
 }
@@ -16,22 +15,24 @@
   margin-top: 20%;
 }
 
+.grillas {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 60px) auto;
+}
 
 .grillas div {
   border: solid 1px #000;
   text-align: center;
   padding: 10px;
-
 }
 
-.grillas {
-  width: 80%;
-  margin: -40% auto 5%;
-  height: 100px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+.grillas div:last-child {
+  margin-bottom: 5%;
 }
+
 
 
 .grillas .nosotros {
@@ -55,9 +56,13 @@
 }
 
 .grillas .content {
-  height: auto;
   grid-column: span 6;
+  /* height: 100%; */
+}
 
+.select {
+  background: rgb(70, 69, 69);
+  color: #fff;
 }
 
 /*---------------------- Tamaño escritorio y tablets-----------------------*/
@@ -72,17 +77,12 @@
   }
 
   .grillas {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
   }
 
   .grillas div {
     padding: 5%;
-  }
-
-  .select {
-    background: rgb(70, 69, 69);
-    color: #fff;
   }
 
   .item {

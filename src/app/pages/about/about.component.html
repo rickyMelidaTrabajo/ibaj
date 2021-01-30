@@ -1,10 +1,12 @@
 <header>
   <app-menu></app-menu>
 </header>
-<div class="container">
+<div class="container" id="container">
 
   <div (click)="loader()">
     <app-banner-about id="content"></app-banner-about>
   </div>
-  <app-footer></app-footer>
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
 </div>

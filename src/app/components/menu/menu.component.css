@@ -51,6 +51,9 @@ input {
   color: #fff;
 }
 
+.main ul .active {
+  color: rgb(252, 0, 0);
+}
 .ocultaHeader {
   display: none;
 }
@@ -89,6 +92,7 @@ input {
 .ocultarIconClose {
   display: none;
 }
+
 
 @keyframes ocultar {
   from {
@@ -141,6 +145,10 @@ input {
     font-weight: bold;
     color: rgb(145, 143, 143);
     transition: .5s all;
+  }
+
+  .main-desktop ul .active {
+    color: #fff;
   }
 
   .main-desktop ul li:hover {
