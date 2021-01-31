@@ -58,4 +58,16 @@ export class DataWebService {
     return this.firestore.collection('versiculos').snapshotChanges();
   }
 
+  getActivities() {
+    return this.firestore.collection('activities').snapshotChanges();
+  }
+
+  getVersosConsejos() {
+    return this.firestore.collection('versiculos').snapshotChanges();
+  }
+
+  addComment(comment: any) {
+    return this.firestore.collection('data').add(comment);
+  }
+
 }

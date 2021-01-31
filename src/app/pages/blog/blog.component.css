@@ -84,7 +84,7 @@ cite {
 }
 
 .other-articles {
-  margin: 5% 10% 10%;
+  margin: 10% 10% 20%;
 }
 
 @media (min-width: 1024px) {
@@ -101,6 +101,15 @@ cite {
   .article section {
     width: 65%;
   }
+
+  .article section h3{
+    font-size: 2.3em;
+  }
+
+  .comment em,
+cite {
+  font-size: 1.3em;
+}
 
   form {
     width: 70%;
@@ -128,11 +137,16 @@ cite {
   .other {
     grid-area: 1 / 2 / 2 / 2;
     grid-row: 1 / span 2;
-    padding: 25% 10% 0 0;
+    padding: 35% 10% 0 0;
   }
 
   .other-articles {
     width: 60%;
+  }
+
+  .other-articles p {
+    height: 13vh;
+    overflow: hidden;
   }
 
   .footer {

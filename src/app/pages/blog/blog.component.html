@@ -2,38 +2,36 @@
   <app-menu></app-menu>
 </div>
 
-<div class="container">
+<div class="container" id="container">
 
   <!------------------------------------ Articulo  ---------------------------------------------->
   <!-------------------------------------------------------------------------------------------->
   <div class="article">
     <section>
-      <h3>Titulo</h3>
+      <h3>{{ lastArticle.titulo }}</h3>
       <div class="img">
-        <img src="/assets/imagenes/oracion.jpg" alt="" srcset="">
+        <img src="{{ lastArticle.urlImagen }}" alt="" srcset="">
       </div>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit deleniti totam, id sit harum nihil dolorem!
-        Vel libero ad earum itaque. Dignissimos magni facilis accusamus labore qui consectetur nesciunt accusantium.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptatibus ipsam numquam optio quidem tempora eaque quod. Commodi facere quis sed veritatis placeat nulla cupiditate nisi rerum corporis, neque perspiciatis possimus consectetur deleniti odio minus, officiis recusandae eveniet in similique magni. Id placeat necessitatibus quasi nihil quas maxime, illum similique?
+        {{ lastArticle.texto }}
       </p>
 
-      <cite>Autor</cite>
-      <em>10-10-20</em>
+      <cite>{{ lastArticle.autor }}</cite>
+      <em> {{ lastArticle.fecha }} </em>
 
     </section>
 
   <!------------------------------------ Formulario de comentario  ---------------------------------------------->
   <!-------------------------------------------------------------------------------------------->
-    <form>
+    <form [formGroup]="formGroup">
       <div class="form-group">
-        <textarea name="" id="" cols="30" rows="10" placeholder="Comentario.."></textarea>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Comentario.." formControlName="comment"></textarea>
       </div>
       <div class="form-group">
-        <input type="text" name="" id="" placeholder="Nombre">
+        <input type="text" name="" id="" placeholder="Nombre" formControlName="name">
       </div>
       <div class="form-group">
-        <button>Enviar</button>
+        <button (click)="addComment()">Enviar</button>
       </div>
     </form>
   </div>
@@ -71,37 +69,14 @@
   <!------------------------------------ Otros articulos  ---------------------------------------------->
   <!-------------------------------------------------------------------------------------------->
   <div class="other">
-    <div class="other-articles">
+    <div class="other-articles" *ngFor="let article of otherArticles">
 
-      <h3>Titulo</h3>
+      <h3> {{ article.titulo }} </h3>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit deleniti totam, id sit harum nihil dolorem!
-        Vel libero ad earum itaque. Dignissimos magni facilis accusamus labore qui consectetur nesciunt accusantium.
+        {{ article.texto }}
       </p>
 
-      <a href="#">Ver mas</a>
-    </div>
-
-    <div class="other-articles">
-
-      <h3>Titulo</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit deleniti totam, id sit harum nihil dolorem!
-        Vel libero ad earum itaque. Dignissimos magni facilis accusamus labore qui consectetur nesciunt accusantium.
-      </p>
-
-      <a href="#">Ver mas</a>
-    </div>
-
-    <div class="other-articles">
-
-      <h3>Titulo</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit deleniti totam, id sit harum nihil dolorem!
-        Vel libero ad earum itaque. Dignissimos magni facilis accusamus labore qui consectetur nesciunt accusantium.
-      </p>
-
-      <a href="#">Ver mas</a>
+      <a [routerLink]="['/blog', article.id]" (click)="otherArticle(article.id)">leer mas..</a>
     </div>
   </div>
 

@@ -19,7 +19,7 @@ import { PrayerMotiveComponent } from './pages/prayer-motive/prayer-motive.compo
 import { CounselingComponent } from "./pages/counseling/counseling.component";
 import { ActivitiesComponent } from "./pages/activities/activities.component"
 import { AppRoutingModule } from './app.routing';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BannerComponent } from './components/home/banner/banner.component';
 import { ArticlesComponent } from './components/home/articles/articles.component';
 import { SlideshowMainComponent } from './components/home/slideshow-main/slideshow-main.component';
@@ -71,7 +71,8 @@ import { OtherComponent } from './components/counseling/other/other.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
