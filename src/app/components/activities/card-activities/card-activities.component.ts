@@ -22,7 +22,7 @@ export class CardActivitiesComponent implements OnInit {
   ngOnInit(): void {
 
     this.pagination = document.querySelector('#control');
-    document.getElementById('container').addEventListener('click', this.loader);
+    this.loader();
 
     this.getData()
     .then(res=>{
@@ -43,16 +43,16 @@ export class CardActivitiesComponent implements OnInit {
 
 
   loader() {
-    $('#container').waitMe({
-      effect: 'rotation',
-      waitTime: -5,
-      maxSize: 100,
-      onClose: function () { }
-    });
+    // $('#container').waitMe({
+    //   effect: 'rotation',
+    //   waitTime: -5,
+    //   maxSize: 100,
+    //   onClose: function () { }
+    // });
 
     setTimeout(() => {
       $('#container').waitMe('hide');
-      window.scrollTo(0, 400);
+      window.scrollTo(0, 0);
     }, 1500);
   }
 }

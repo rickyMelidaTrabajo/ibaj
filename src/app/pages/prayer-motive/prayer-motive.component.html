@@ -13,9 +13,8 @@
       Oramos por ti
     </h3>
     <p>
-      Confesaos vuestras ofensas unos a otros, y orad unos por otros, para que seáis sanados. La oración eficaz del
-      justo puede mucho.
-      <cite>Santiago 5:16</cite>
+      {{ versiculoCabecera.versiculo }}
+      <cite> {{ versiculoCabecera.pasaje }} </cite>
     </p>
   </div>
   <!-------------------------------------------------->
@@ -31,45 +30,32 @@
     </p>
     <div class="grid">
 
-      <form>
+      <form [formGroup]="formGroup">
         <div class="form-group">
-          <input type="text" name="nombre" id="nombre" autocomplete="off" placeholder="Nombre">
+          <input type="text" name="nombre" id="nombre" autocomplete="off" placeholder="Nombre" formControlName="name">
         </div>
 
         <div class="form-group">
-          <input type="text" name="correo" id="correo" autocomplete="off" placeholder="Correo">
+          <input type="text" name="correo" id="correo" autocomplete="off" placeholder="Correo" formControlName="email">
         </div>
 
         <div class="form-group">
-          <textarea name="mensaje" id="mensaje" cols="35" rows="12" placeholder="Escriba aqui su petición de oración.."></textarea>
+          <textarea name="mensaje" id="mensaje" cols="35" rows="12" placeholder="Escriba aqui su petición de oración.." formControlName="peticion"></textarea>
         </div>
         <button (click)="addData()">Enviar</button>
       </form>
 
       <div class="other-vers">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus
-          numquam
-          asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-          <br>
-          <cite>Pasaje 1:2</cite>
-        </p>
+        <div class="vers" *ngFor="let versiculo of versiculos">
 
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus
-          numquam
-          asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-          <br>
-          <cite>Pasaje 1:2</cite>
-        </p>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum dolore autem facilis soluta doloribus
-          numquam
-          asperiores et delectus labore velit recusandae, consectetur quidem ipsam. Aliquam eveniet non sed asperiores!
-          <br>
-          <cite>Pasaje 1:2</cite>
-        </p>
-      </div>
+          <p>
+            {{ versiculo.versiculo }}
+            <br>
+            <cite>{{ versiculo.pasaje }}</cite>
+          </p>
+        </div>
+
+        </div>
     </div>
   </div>
   <!-------------------------------------------------->

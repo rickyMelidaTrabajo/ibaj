@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataWebService } from 'src/app/services/data-web.service';
 import { waitMe } from "waitme/waitMe";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Versiculos } from '../../models/versiculos.interface';
 
 // Declaramos las variables para jQuery
 declare var jQuery: any;
@@ -13,20 +15,44 @@ declare var $: any;
 })
 export class PrayerMotiveComponent implements OnInit {
 
-  data:any = {
-    nombre: 'Ricardo',
-    email : 'ricardomelida92@gmail.com',
-    peticion: 'Por un trabajo mejor'
+  versiculos: Array<Versiculos> = new Array();
+  versiculoCabecera: Versiculos = {
+    versiculo: '',
+    pasaje: ''
   };
+  dataPrayer: Array<any> = new Array();
 
-  constructor(private _prayerService: DataWebService) { }
+  formGroup: FormGroup;
+
+  constructor(private _prayerService: DataWebService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.buildForm();
+
+    this.getVersos()
+    .then((result) => {
+      this.versiculos = result.oracion;
+      this.versiculoCabecera = this.versiculos.shift();
+    });
     this.loader();
   }
 
   addData() {
-    this._prayerService.addPrayer(this.data);
+    this.dataPrayer.push(this.formGroup.value as any);
+    this._prayerService.addPrayer(this.formGroup.value).then((res)=>{
+      this.formGroup.reset();
+      alert('Genial!');
+    });
+  }
+
+  getVersos():any {
+    return new Promise((resolve, reject)=>{
+      this._prayerService.getVersiculos().subscribe(item=>{
+        item.forEach(element=>{
+          resolve(element.payload.doc.data());
+        });
+      });
+    });
   }
 
   loader() {
@@ -40,6 +66,14 @@ export class PrayerMotiveComponent implements OnInit {
     setTimeout(() => {
       $('#container').waitMe('hide');
     }, 3000);
+  }
+
+  private buildForm() {
+    this.formGroup = this.formBuilder.group({
+      peticion: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['', Validators.required]
+    });
   }
 
 }

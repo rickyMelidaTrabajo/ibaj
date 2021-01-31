@@ -4,8 +4,8 @@
 }
 
 .card {
-  width: 80%;
-  background: wheat;
+  width: 70%;
+  background: rgb(240, 240, 239);
   margin: 10% auto;
   border: solid 1px #000;
 }
@@ -48,7 +48,7 @@
   }
 
   .card {
-    width: 50%;
+    width: 45%;
     margin: 5% 20%;
   }
 

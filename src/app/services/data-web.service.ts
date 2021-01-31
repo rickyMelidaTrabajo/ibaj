@@ -31,7 +31,7 @@ export class DataWebService {
   }
 
   addPrayer(orderPrayer: any) {
-    return this.firestore.collection('data').add(orderPrayer);
+    return this.firestore.collection('peticiones-oracion').add(orderPrayer);
   }
 
   getNosotros() {
