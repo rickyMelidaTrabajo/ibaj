@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataWebService } from 'src/app/services/data-web.service';
+import { VersesService } from 'src/app/services/verses.service';
+import { PrayerServiceService } from 'src/app/services/prayer-service.service';
+
 import { waitMe } from "waitme/waitMe";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Versiculos } from '../../models/versiculos.interface';
@@ -24,7 +26,11 @@ export class PrayerMotiveComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  constructor(private _prayerService: DataWebService, private formBuilder: FormBuilder) { }
+  constructor(
+    private _prayerService: PrayerServiceService,
+    private _versesService: VersesService,
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -47,7 +53,7 @@ export class PrayerMotiveComponent implements OnInit {
 
   getVersos():any {
     return new Promise((resolve, reject)=>{
-      this._prayerService.getVersiculos().subscribe(item=>{
+      this._versesService.getVersiculos().subscribe(item=>{
         item.forEach(element=>{
           resolve(element.payload.doc.data());
         });
@@ -72,7 +78,9 @@ export class PrayerMotiveComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       peticion: ['', Validators.required],
       name: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ['', Validators.compose([
+        Validators.required, Validators.email
+      ])]
     });
   }
 

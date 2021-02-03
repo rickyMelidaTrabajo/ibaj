@@ -1,9 +1,12 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { waitMe } from "waitme/waitMe";
+
+import { ArticlesServicesService } from 'src/app/services/articles-services.service';
+import { VersesService } from "src/app/services/verses.service";
+
+import { Versiculos } from "src/app/models/versiculos.interface";
 import { Blog } from 'src/app/models/blog.interface';
 import { DataPagination } from 'src/app/models/data-pagination.interface';
-import { DataWebService } from 'src/app/services/data-web.service';
-import { Versiculos } from "src/app/models/versiculos.interface";
-import { waitMe } from "waitme/waitMe";
 
 // Declaramos las variables para jQuery
 declare var jQuery: any;
@@ -30,9 +33,9 @@ export class ArticlesComponent implements OnInit {
   p: number = 1;
   sizeDesktop: boolean;
   versos: Array<Versiculos>;
-  page:any;
+  page: any;
 
-  constructor(private _service: DataWebService) { }
+  constructor(private _articlesService: ArticlesServicesService, private _versesServices: VersesService) { }
 
   ngOnInit(): void {
 
@@ -46,14 +49,14 @@ export class ArticlesComponent implements OnInit {
 
     this.getData()
       .then(res => {
-        this.articles = res.data;
+        this.articles = res;
+        console.log(this.articles);
       });
 
     this.getVersos()
-    .then(res => {
-      this.versos =  res.data;
-      console.log(this.versos);
-    });
+      .then(res => {
+        this.versos = res.data;
+      });
 
 
 
@@ -61,17 +64,19 @@ export class ArticlesComponent implements OnInit {
 
   getData(): any {
     return new Promise((resolve, reject) => {
-      this._service.getArticles().subscribe((item) => {
+      this._articlesService.getArticles().subscribe((item) => {
+        let datos = new Array;
         item.forEach(element => {
-          resolve(element.payload.doc.data());
+          datos.push(element.payload.doc.data());
+          resolve(datos);
         });
       });
     });
   }
 
-  getVersos():any {
+  getVersos(): any {
     return new Promise((resolve, reject) => {
-      this._service.getVersiculos().subscribe((item) => {
+      this._versesServices.getVersiculos().subscribe((item) => {
         item.forEach(element => {
           resolve(element.payload.doc.data());
         });

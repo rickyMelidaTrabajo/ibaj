@@ -76,6 +76,10 @@ cite {
   padding-bottom: 10px;
 }
 
+.exists-c {
+  background: red;
+}
+
 /*------------------ Otros Articulos -------------------------*/
 /*---------------------------------------------------------*/
 .other {
@@ -85,6 +89,15 @@ cite {
 
 .other-articles {
   margin: 10% 10% 20%;
+}
+
+.alert {
+  width: 70%;
+  color: rgb(220, 53, 69);
+  background: rgba(220, 53, 69, 0.3);
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 7px;
 }
 
 @media (min-width: 1024px) {
@@ -108,7 +121,7 @@ cite {
 
   .comment em,
 cite {
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
   form {
@@ -124,7 +137,7 @@ cite {
     grid-area: 2 / 1 / 2 / -1;
     background: rgba(200, 236, 245, 0.333);
     width: 100%;
-    padding: 8% 0;
+    padding: 3% 0;
     margin-top: -15%;
   }
 

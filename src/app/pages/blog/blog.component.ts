@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Blog } from 'src/app/models/blog.interface';
-import { DataWebService } from 'src/app/services/data-web.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { waitMe } from "waitme/waitMe";
+import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { ArticlesServicesService } from 'src/app/services/articles-services.service';
+
+import { Comentario } from 'src/app/models/comentario.interface';
+import { Blog } from 'src/app/models/blog.interface';
 
 // Declaramos las variables para jQuery
 declare var jQuery: any;
@@ -20,19 +23,23 @@ export class BlogComponent implements OnInit {
   id: any;
   lastArticle: Blog = {
     titulo: '',
+    comentarios: new Array(),
     urlImagen: '',
     texto: '',
     autor: '',
     fecha: new Date,
-    id: 0,
-    versiculo: '',
-    pasaje: ''
+    id: 0
   };
   indice: number;
   formGroup: FormGroup;
-  dataComment: Array<any> = new Array();
+  dataComment: Array<Comentario> = new Array();
+  existComment: boolean = false;
 
-  constructor(private dataBlog: DataWebService, private ruta: ActivatedRoute, private formBuilder: FormBuilder) { }
+  constructor(
+    private _articlesServices: ArticlesServicesService,
+    private ruta: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -47,19 +54,21 @@ export class BlogComponent implements OnInit {
       .then(res => {
         this.articles = res.data;
         this.getOtherArticles();
+        this.lastArticle = res.data[this.indice];
+        this.dataComment = this.lastArticle.comentarios;
+
+        if (this.dataComment.length != 0) {
+          this.existComment = true;
+        }
       });
 
-    this.getData()
-      .then((result) => {
-        this.lastArticle = result.data[this.indice];
-      });
 
     this.loader();
   }
 
   getData(): any {
     return new Promise((resolve, reject) => {
-      this.dataBlog.getArticles().subscribe((item) => {
+      this._articlesServices.getArticles().subscribe((item) => {
         item.forEach(element => {
           resolve(element.payload.doc.data());
         });
@@ -74,19 +83,28 @@ export class BlogComponent implements OnInit {
   }
 
   otherArticle(id: number) {
-    console.log('el id es ', id)
     setTimeout(() => {
       location.reload();
-
     }, 500);
   }
 
 
   addComment() {
     this.dataComment.push(this.formGroup.value as any);
-    this.dataBlog.addComment(this.formGroup.value).then((res)=>{
+    this._articlesServices.addComment(this.formGroup.value).then((res) => {
       this.formGroup.reset();
       alert('Genial!');
+    });
+  }
+
+  getComments(): any {
+    return new Promise((resolve, reject) => {
+      this._articlesServices.getComment().subscribe(item => {
+        item.forEach(element => {
+          resolve(element.payload.doc.data());
+        });
+        reject('No hay comentarios');
+      });
     });
   }
 
@@ -103,8 +121,6 @@ export class BlogComponent implements OnInit {
       window.scrollTo(0, 0);
     }, 1500);
   }
-
-
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({

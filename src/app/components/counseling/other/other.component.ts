@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataWebService } from '../../../services/data-web.service';
+import { VersesService } from '../../../services/verses.service';
 import { Versiculos } from '../../../models/versiculos.interface';
 
 @Component({
@@ -9,7 +9,7 @@ import { Versiculos } from '../../../models/versiculos.interface';
 })
 export class OtherComponent implements OnInit {
 
-  constructor( private _service:DataWebService) { }
+  constructor( private _versesService: VersesService) { }
   p: any = [ {} ,{},{}, {} ];
   versiculos: Array<Versiculos>;
 
@@ -24,7 +24,7 @@ export class OtherComponent implements OnInit {
 
   getData():any {
     return new Promise((resolve, reject)=>{
-      this._service.getVersiculos().subscribe(item=>{
+      this._versesService.getVersiculos().subscribe(item=>{
         item.forEach(element=>{
           resolve(element.payload.doc.data());
         });

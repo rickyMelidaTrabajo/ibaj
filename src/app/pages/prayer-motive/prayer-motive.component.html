@@ -33,16 +33,31 @@
       <form [formGroup]="formGroup">
         <div class="form-group">
           <input type="text" name="nombre" id="nombre" autocomplete="off" placeholder="Nombre" formControlName="name">
+          <div *ngIf="formGroup.controls['name'].invalid && formGroup.controls['name'].dirty" class="alert">
+            <span *ngIf="formGroup.controls['name'].errors.required">El nombre es requerido</span>
+          </div>
         </div>
 
         <div class="form-group">
-          <input type="text" name="correo" id="correo" autocomplete="off" placeholder="Correo" formControlName="email">
+          <input type="email" name="correo" id="correo" autocomplete="off" placeholder="Correo" formControlName="email">
+          <div *ngIf="formGroup.controls['email'].invalid && formGroup.controls['email'].dirty">
+            <div *ngIf="formGroup.controls['email'].errors.required" class="alert">
+              El correo es requerido
+            </div>
+            <div *ngIf="formGroup.controls['email'].errors.email" class="alert">
+              No parece un correo valido
+            </div>
+          </div>
         </div>
 
         <div class="form-group">
-          <textarea name="mensaje" id="mensaje" cols="35" rows="12" placeholder="Escriba aqui su petición de oración.." formControlName="peticion"></textarea>
+          <textarea name="mensaje" id="mensaje" cols="35" rows="12" placeholder="Escriba aqui su petición de oración.."
+            formControlName="peticion"></textarea>
+          <div *ngIf="formGroup.controls['peticion'].invalid && formGroup.controls['peticion'].dirty" class="alert">
+            <span *ngIf="formGroup.controls['peticion'].errors.required">Este campo es requerido</span>
+          </div>
         </div>
-        <button (click)="addData()">Enviar</button>
+        <button [disabled]="!formGroup.valid" (click)="addData()">Enviar</button>
       </form>
 
       <div class="other-vers">
@@ -55,7 +70,7 @@
           </p>
         </div>
 
-        </div>
+      </div>
     </div>
   </div>
   <!-------------------------------------------------->

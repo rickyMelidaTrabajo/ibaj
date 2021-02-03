@@ -1,9 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { About } from '../models/about.interface';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { Nosotros } from '../models/nosotros.interface';
 
 
 @Injectable({
@@ -14,7 +10,7 @@ export class DataWebService {
   dataConsejos: any;
   dataBlog: any;
 
-  constructor(private _http: HttpClient, private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore) { }
 
 
 
@@ -24,14 +20,6 @@ export class DataWebService {
 
   getData() {
     return this.firestore.collection('data').snapshotChanges();
-  }
-
-  getArticles() {
-    return this.firestore.collection('articles').snapshotChanges();
-  }
-
-  addPrayer(orderPrayer: any) {
-    return this.firestore.collection('peticiones-oracion').add(orderPrayer);
   }
 
   getNosotros() {
@@ -54,20 +42,9 @@ export class DataWebService {
     return this.firestore.collection('servicios').snapshotChanges();
   }
 
-  getVersiculos() {
-    return this.firestore.collection('versiculos').snapshotChanges();
-  }
-
   getActivities() {
     return this.firestore.collection('activities').snapshotChanges();
   }
 
-  getVersosConsejos() {
-    return this.firestore.collection('versiculos').snapshotChanges();
-  }
-
-  addComment(comment: any) {
-    return this.firestore.collection('data').add(comment);
-  }
 
 }

@@ -1,10 +1,11 @@
+import { Comentario } from "./comentario.interface";
+
 export interface Blog {
   autor: string;
+  comentarios: Array<Comentario>;
   fecha: Date;
   id: number;
-  pasaje: string;
   texto: string;
   titulo: string;
   urlImagen: string;
-  versiculo: string;
 }
