@@ -42,9 +42,5 @@ export class DataWebService {
     return this.firestore.collection('servicios').snapshotChanges();
   }
 
-  getActivities() {
-    return this.firestore.collection('activities').snapshotChanges();
-  }
-
 
 }
