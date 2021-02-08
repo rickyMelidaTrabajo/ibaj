@@ -1,20 +1,79 @@
-<app-menu></app-menu>
-
-<div class="container">
-
-  <div class="image">
-    <img src="{{ consejo.urlImagen }}" alt="">
-  </div>
-
-  <div class="titulo">
-    <h4> {{ consejo.titulo }} </h4>
-  </div>
-
-  <p>
-    {{ consejo.texto }}
-  </p>
+<div class="header">
+  <app-menu></app-menu>
 </div>
 
+<div class="container" id="container">
 
 
-<app-footer></app-footer>
+  <div class="article">
+    <section>
+      <h3>{{ consejo.titulo }}</h3>
+      <div class="img">
+        <img src="{{ consejo.urlImagen }}" alt="" srcset="">
+      </div>
+      <p>
+        {{ consejo.texto }}
+      </p>
+
+      <cite> Autor: {{ consejo.autor }}</cite>
+
+    </section>
+
+
+    <form [formGroup]="formGroup">
+      <div class="form-group">
+        <textarea name="" id="" cols="30" rows="10" placeholder="Comentario.." formControlName="comment"></textarea>
+        <div *ngIf="formGroup.controls['comment'].invalid && formGroup.controls['comment'].dirty" class="alert">
+          <span *ngIf="formGroup.controls['comment'].errors.required">Este campo es requerido</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" name="" id="" placeholder="Nombre" formControlName="name">
+        <div *ngIf="formGroup.controls['name'].invalid && formGroup.controls['name'].dirty" class="alert">
+          <span *ngIf="formGroup.controls['name'].errors.required">El nombre es requerido</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="addComment()">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="comments" *ngIf="existComment; else noComments">
+    <div class="comment" *ngFor="let comentario of dataComment">
+      <em>
+        "{{ comentario.comentario }}"
+      </em>
+      <cite>{{ comentario.nombre }}</cite>
+    </div>
+
+  </div>
+
+  <ng-template #noComments>
+    <div class="comments">
+      <div class="comment">
+        No hay comentarios.
+      </div>
+    </div>
+  </ng-template>
+
+
+
+  <div class="other">
+    <h4>Otros Consejos</h4>
+    <div class="other-articles" *ngFor="let article of otherC">
+
+      <h3> {{ article.titulo }} </h3>
+      <p>
+        {{ article.texto }}
+      </p>
+
+      <a [routerLink]="['/details', article.id]" (click)="otherCounseling()">leer mas..</a>
+    </div>
+  </div>
+
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>

@@ -37,8 +37,6 @@ export class AdvicesComponent implements OnInit {
   }
 
   getData():any {
-    // this.data = this.datos.data;
-    // localStorage.setItem('consejos', JSON.stringify(this.data));
     return new Promise((resolve, reject)=>{
       this._data.getconsejos()
       .subscribe(item => {
@@ -47,7 +45,6 @@ export class AdvicesComponent implements OnInit {
         });
       });
     });
-
   }
 
   loader() {
