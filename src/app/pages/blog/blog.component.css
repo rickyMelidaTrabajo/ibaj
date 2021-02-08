@@ -83,12 +83,26 @@ cite {
 /*------------------ Otros Articulos -------------------------*/
 /*---------------------------------------------------------*/
 .other {
-  width: 90%;
+  width: 70%;
   margin: 20% auto;
 }
 
+.other h4 {
+  font-size: 1.3em;
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+  padding: 10px 0;
+}
+
 .other-articles {
-  margin: 10% 10% 20%;
+  margin: 12.5% auto;
+  border-bottom: solid 1px #000;
+  padding-bottom: 10px;
+}
+
+.other-articles p {
+  height: 14vh;
+  overflow: hidden;
 }
 
 .alert {
@@ -154,7 +168,13 @@ cite {
   }
 
   .other-articles {
-    width: 60%;
+    margin: 20% 0;
+    width: 80%;
+    border: none;
+  }
+
+  .other-articles p {
+    margin: 5% 0;
   }
 
   .other-articles p {

@@ -45,13 +45,13 @@ export class CounselingDetailsComponent implements OnInit {
 
     this.getData()
       .then(res => {
-        this.loader();
         this.data = res.data;
         this.consejo = this.data[this.id];
         this.getOtherCounseling();
       })
       .catch(error => {
       });
+      this.loader();
   }
 
   getData(): any {
