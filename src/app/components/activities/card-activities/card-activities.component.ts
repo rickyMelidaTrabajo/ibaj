@@ -15,12 +15,11 @@ export class CardActivitiesComponent implements OnInit {
   constructor(private _activitiesService: ActivitiesServicesService) { }
 
   ngOnInit(): void {
-
     this.getData()
-    .then(res=>{
-      console.log(res);
-      this.activities = res;
-    });
+      .then(res => {
+        console.log(res);
+        this.activities = res;
+      });
 
   }
 
