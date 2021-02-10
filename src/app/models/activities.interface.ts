@@ -4,6 +4,7 @@ export class Activities {
   fecha: string;
   dia: string;
   hora: string;
+  id: string;
   ubicacion: {
     lugar: string;
     direccion: string;

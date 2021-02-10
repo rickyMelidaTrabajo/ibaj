@@ -16,7 +16,7 @@
         <p>
           <strong>{{ activity.ubicacion.direccion }}</strong>
         </p>
-        <button>Ver mas..</button>
+        <button [routerLink]="['/actividad', activity.id]">Ver mas..</button>
       </div>
     </div>
   </div>

@@ -27,12 +27,26 @@ export class HomeComponent implements OnInit {
   constructor( private _articlesServices: ArticlesServicesService) { }
 
   ngOnInit(): void {
+    this.loader();
   }
 
   paginaSeleccionada(event) {
     this.dataArticles = event;
   }
 
+  loader() {
+    $('#container').waitMe({
+      effect: 'facebook',
+      fontSize: '28px',
+      bg: 'rgba(245, 241, 240, 0.7)',
+      // waitTime: -7,
+      onClose: function () { }
+    });
 
+    setTimeout(() => {
+      $('#container').waitMe('hide');
+      window.scrollTo(0, 0);
+    }, 3000);
+  }
 
 }

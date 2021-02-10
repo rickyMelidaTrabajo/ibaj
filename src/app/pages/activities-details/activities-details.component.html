@@ -1,0 +1,54 @@
+<div class="header">
+  <app-menu></app-menu>
+</div>
+
+<div class="container" id="container">
+
+
+  <div class="article">
+    <section>
+      <h3>{{ lastActivitie.nombre }}</h3>
+      <div class="img">
+        <img src="{{ lastActivitie.imagen }}" alt="" srcset="">
+      </div>
+      <p>
+        {{ lastActivitie.descripcion }}
+      </p>
+        {{ lastActivitie.fecha }}
+      <p>
+        {{ lastActivitie.dia }}
+      </p>
+
+      <p>
+        {{ lastActivitie.ubicacion.direccion }}
+      </p>
+
+      <p>
+
+      </p>
+    </section>
+
+
+  </div>
+
+
+
+
+  <div class="other">
+    <h4>Actividades Externas</h4>
+    <div class="other-articles" *ngFor="let article of activities">
+
+      <h3> {{ article.nombre }} </h3>
+      <p>
+        {{ article.descripcion }}
+      </p>
+
+      <!-- <a [routerLink]="['/details', article.id]" (click)="otherCounseling()">leer mas..</a> -->
+    </div>
+  </div>
+
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>
+
