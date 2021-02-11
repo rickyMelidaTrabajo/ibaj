@@ -81,6 +81,7 @@ iframe {
 
   .info {
     margin-left: 5%;
+    margin-top: 7%;
   }
 
   .info ul li {
@@ -91,7 +92,29 @@ iframe {
     font-size: 23px;
     text-decoration: none;
     margin: 2%;
+    transition: 0.3s all;
+  }
 
+  .redes .icon-facebook i:hover {
+    color: #1877f2;
+    font-size: 23px;
+  }
+
+  .redes .icon-twitter i:hover {
+    color: #1da1f2;
+  }
+
+  .redes .icon-instagram i:hover {
+    color: #c32aa3;
+  }
+
+  .redes .icon-youtube i:hover {
+    color: #ff0000;
+  }
+  .map span {
+    display: block;
+    float: left;
+    margin: 3% 20%;
   }
 
   iframe {
