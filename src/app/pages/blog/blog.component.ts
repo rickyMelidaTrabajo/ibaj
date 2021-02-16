@@ -52,11 +52,11 @@ export class BlogComponent implements OnInit {
 
     this.getData()
       .then(res => {
-        console.log(res);
         this.articles = res;
         this.getOtherArticles();
         this.lastArticle = this.articles[this.indice];
         this.dataComment = this.lastArticle.comentarios;
+        console.log(this.dataComment);
 
         if (this.dataComment.length != 0) {
           this.existComment = true;
@@ -94,7 +94,7 @@ export class BlogComponent implements OnInit {
 
   addComment() {
     this.dataComment.push(this.formGroup.value as any);
-    this._articlesServices.addComment(this.formGroup.value).then((res) => {
+    this._articlesServices.addComment(this.dataComment, this.indice.toString()).then((res) => {
       this.formGroup.reset();
       alert('Genial!');
     });
@@ -127,8 +127,8 @@ export class BlogComponent implements OnInit {
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      comment: ['', Validators.required],
-      name: ['', Validators.required]
+      comentario: ['', Validators.required],
+      nombre: ['', Validators.required]
     });
   }
 

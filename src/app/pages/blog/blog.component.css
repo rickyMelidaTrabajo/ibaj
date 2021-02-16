@@ -70,10 +70,26 @@ input {
   margin: auto;
 }
 
+.comments h3{
+  width: 75%;
+  display: block;
+  margin: 0 auto 10%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 17px;
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+
+}
+
 .comment em,
 cite {
   display: block;
   padding-bottom: 10px;
+}
+
+.comment cite {
+  margin-bottom: 10%;
 }
 
 .exists-c {
@@ -117,7 +133,7 @@ cite {
 @media (min-width: 1024px) {
   .container {
     display: grid;
-    grid-template-columns: 1.4fr 0.6fr ;
+    grid-template-columns: 1.4fr 0.6fr;
     grid-template-rows: 1fr auto;
   }
 
@@ -129,14 +145,25 @@ cite {
     width: 65%;
   }
 
-  .article section h3{
+  .article section h3 {
     font-size: 2.3em;
   }
 
+  .comments h3{
+    margin: 0 auto;
+    font-size: 24px;
+    padding: 10px 0;
+    border: none;
+  }
+
   .comment em,
-cite {
-  font-size: 1.1em;
-}
+  cite {
+    font-size: 1.1em;
+  }
+
+  .comment cite {
+    margin-bottom: 0%;
+  }
 
   form {
     width: 70%;

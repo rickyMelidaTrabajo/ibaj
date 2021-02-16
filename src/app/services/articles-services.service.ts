@@ -12,35 +12,30 @@ export class ArticlesServicesService {
     return this.firestore.collection('articles').snapshotChanges();
   }
 
-  addComment(comment: any) {
-    // let datos: any = {
-    //   dato1: 'dato9',
-    //   dato2: 'dato8',
-    //   dato3: [
-    //     {
-    //       datoArray1: 'datoArray6',
-    //       datoArray2: 'datoArray5'
-    //     },
-    //     {
-    //       datoArray1: 'datoArray6',
-    //       datoArray2: 'datoArray5'
-    //     },
-    //     {
-    //       datoArray1: 'datoArray6',
-    //       datoArray2: 'datoArray5'
-    //     },
-    //     {
-    //       datoArray1: 'datoArray6',
-    //       datoArray2: 'datoArray5'
-    //     },
-    //   ]
-    // };
+  addComment(comentarios: Array<any>, idArticle: any) {
     let datos: Array<any> = new Array();
-    datos.push({
-      atoArrayM: 'datoArrayM',
-      datoArrayM: 'datoArrayM'
-    });
-    return this.firestore.doc('data/1').set(datos);
+    datos.push(
+      {
+      atoArrayM: 'datoArrayM1',
+      datoArrayM: 'datoArrayM1'
+    },
+    {
+      atoArrayM: 'datoArrayM2',
+      datoArrayM: 'datoArrayM2'
+    },
+    {
+      atoArrayM: 'datoArrayM3',
+      datoArrayM: 'datoArrayM3'
+    },
+    {
+      atoArrayM: 'datoArrayM4',
+      datoArrayM: 'datoArrayM4'
+    },
+    );
+    return this.firestore.collection('articles').doc(idArticle).set({
+      comentarios
+    }, {merge: true});
+
   }
 
   getComment() {
