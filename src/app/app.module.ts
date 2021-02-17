@@ -40,6 +40,9 @@ import { ExternalLinksComponent } from './components/activities/external-links/e
 import { OtherComponent } from './components/counseling/other/other.component';
 import { ActivitiesDetailsComponent } from './pages/activities-details/activities-details.component';
 
+// Importamos Sweet Alert
+import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +77,8 @@ import { ActivitiesDetailsComponent } from './pages/activities-details/activitie
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SweetAlert2Module
   ],
   providers: [],
   bootstrap: [AppComponent]

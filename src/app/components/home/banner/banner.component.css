@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
@@ -16,20 +16,22 @@
 header h3 {
   font-size: 21px;
   font-weight: bold;
-  color: #000;
+  color: rgb(214, 208, 208);
   font-family: 'Great Vibes', cursive;
+  text-shadow: 0px 4px 3px rgba(255, 255, 255, 0.3),
+               0px 8px 13px rgba(255, 255, 255, 0.1),
+               0px 18px 23px rgba(255, 255, 255, 0.1);
 }
 
 header h4 {
   font-size: 21px;
   font-weight: bold;
-  color: #000;
-  font-family: 'Dancing Script', cursive;
+  color: rgb(214, 208, 208);
+  font-family: 'Benne', serif;
 
 }
 
 .banner {
-  /* width: 100px; */
   height: 100px;
   position: absolute;
   left: 50%;
@@ -39,12 +41,10 @@ header h4 {
 
 .banner p {
   font-family: 'Arapey', serif;
-  color: #000;
+  color: rgb(214, 208, 208);
   font-size: 16px;
   font-weight: bold;
-  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
-               0px 8px 13px rgba(0, 0, 0, 0.1),
-               0px 18px 23px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.3);
 }
 
 .banner p span {
@@ -86,14 +86,15 @@ header h4 {
   }
 
   header h3, h4 {
-    font-size: 1.9rem;
+    font-size: 2.8rem;
   }
 
   .banner {
-    width: 450px;
+    width: 350px;
   }
 
   .banner p {
+    text-align: center;
     font-size: 1.5rem;
   }
 

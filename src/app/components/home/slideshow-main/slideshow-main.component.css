@@ -9,7 +9,17 @@
   background: url('/assets/imagenes/image_1.jpg') no-repeat ;
   background-size: 100% 100vh;
   animation: slideshow 20s infinite;
-  opacity: .6;
+  opacity: 1;
+}
+
+.slideshow:before {
+	content:'';
+	position: absolute;
+        top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(39, 38, 38, 0.6);
 }
 
 @keyframes slideshow {
