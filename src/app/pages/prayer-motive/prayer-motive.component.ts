@@ -25,6 +25,7 @@ export class PrayerMotiveComponent implements OnInit {
   };
   dataPrayer: Array<any> = new Array();
   idPrayer: any;
+  dataRes:Array<any> = new Array();
 
   formGroup: FormGroup;
 
@@ -39,7 +40,9 @@ export class PrayerMotiveComponent implements OnInit {
 
     this.getData()
       .then(result => {
-        this.idPrayer = result.length;
+        this.dataRes.push(result);
+        this.idPrayer = this.dataRes[0].length;
+        console.log(Math.round(Math.random() * 8));
       });
 
     this.getVersos()
@@ -68,7 +71,7 @@ export class PrayerMotiveComponent implements OnInit {
   getData() {
     return new Promise((resolve, reject) => {
       this._prayerService.getPrayer().subscribe(item => {
-        let data = [];
+        let data: Array<any> = new Array();
         item.forEach((dato: any) => {
           data.push({
             id: dato.payload.doc.id,
