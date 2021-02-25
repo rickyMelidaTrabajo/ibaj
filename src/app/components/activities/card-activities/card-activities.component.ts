@@ -25,10 +25,10 @@ export class CardActivitiesComponent implements OnInit {
       .then(res => {
         this.activities = res;
         this.activities.forEach((value, index)=>{
-          console.log(value);
+          // console.log(value);
         });
 
-        console.log(this.data);
+        // console.log(this.data);
       });
 
   }
