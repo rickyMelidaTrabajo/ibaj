@@ -23,6 +23,7 @@
     "@sweetalert2/ngx-sweetalert2": "^9.0.0",
     "firebase": "^8.2.1",
     "font-awesome": "^4.7.0",
+    "http-server": "^0.12.3",
     "jquery": "^3.5.1",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.5.4",
