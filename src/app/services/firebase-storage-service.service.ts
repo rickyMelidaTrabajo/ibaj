@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { AngularFireStorage } from "@angular/fire/storage";
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseStorageServiceService {
 
-  constructor( private storage: AngularFireStorage ) { }
+  constructor( private firestore: AngularFirestore ) { }
 
-  getActivities() {
-    return this.storage.ref('gs://editoriales-ibpr.appspot.com/activities/act_1.jpg');
+  getImagesPortada() {
+    return this.firestore.collection('images-portada').snapshotChanges();
   }
+
+
 }

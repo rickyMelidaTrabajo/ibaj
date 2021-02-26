@@ -18,12 +18,16 @@
     width: 100%;
     margin: -10% 0;
     height: 130vh;
-    background: url("/assets/imagenes/consejos.jpg") no-repeat center;
+    background: url("https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Fconsejos.jpg?alt=media&token=1707a327-5081-4901-8499-96be9b36a0d4") no-repeat center;
     background-size: cover;
     background-attachment: fixed;
     opacity: .7;
   }
 
+  /*
+<!-- <div [ngStyle] = "{'background': 'url(url) no-repeat center' ? sizeDesktop : 'none'}" class="banner" id="container"> -->
+
+  */
   .banner .content {
     width: 450px;
     height: auto;

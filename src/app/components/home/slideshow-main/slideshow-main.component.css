@@ -6,7 +6,7 @@
 .slideshow {
   width: auto;
   height: 100vh;
-  background: url('/assets/imagenes/image_1.jpg') no-repeat ;
+  background: url('https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Fimage_1.jpg?alt=media&token=6345012b-2068-4360-9b73-7bf456ac8a1e') no-repeat ;
   background-size: 100% 100vh;
   animation: slideshow 20s infinite;
   opacity: 1;
@@ -24,23 +24,23 @@
 
 @keyframes slideshow {
   20% {
-    background: url('/assets/imagenes/image_2.jpg') no-repeat ;
+    background: url('https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Fimage_2.jpg?alt=media&token=818fbf8e-02f5-49ef-a687-3a7284474ec0') no-repeat ;
     background-size: 100% 100vh;
   }
   40% {
-    background: url('/assets/imagenes/image_3.jpg') no-repeat ;
+    background: url('https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Fimage_3.jpg?alt=media&token=378a41a1-deac-4a60-b59d-827250fc465d') no-repeat ;
     background-size: 100% 100vh;
   }
   60% {
-    background: url('/assets/imagenes/image_4.jpg') no-repeat ;
+    background: url('https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Fimage_4.jpg?alt=media&token=a392c6c1-bfb1-4871-943a-f2d67e0b7886') no-repeat ;
     background-size: 100% 100vh;
   }
   80% {
-    background: url('/assets/imagenes/image_5.jpg') no-repeat ;
+    background: url('https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Fimage_5.jpg?alt=media&token=9f55578d-afa5-4709-97e2-4457bac6e494') no-repeat ;
     background-size: 100% 100vh;
   }
   100% {
-    background: url('/assets/imagenes/image_1.jpg') no-repeat ;
+    background: url('https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Fimage_1.jpg?alt=media&token=6345012b-2068-4360-9b73-7bf456ac8a1e') no-repeat ;
     background-size: 100% 100vh;
   }
 }

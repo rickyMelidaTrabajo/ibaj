@@ -25,12 +25,6 @@ export class SliderActivitiesComponent implements OnInit {
       });
     });
 
-    this.getImages()
-    .then(res=>{
-      console.log(res);
-    }).catch(err=>{
-
-    })
   }
 
   getData(): any {
@@ -39,18 +33,11 @@ export class SliderActivitiesComponent implements OnInit {
         let datos = new Array;
         item.forEach(element => {
           datos.push(element.payload.doc.data());
-          // this.id.push(element.payload.doc.id);
           resolve(datos);
         });
       });
     });
   }
 
-  getImages() {
-    return new Promise((resolve, rejects)=>{
-      this.imagesStorage.getActivities();
-      resolve(this.imagesStorage.getActivities());
-    })
-  }
 
 }

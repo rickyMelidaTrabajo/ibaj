@@ -6,7 +6,7 @@
 .container .banner {
   width: 100%;
   height: 100vh;
-  background: url("/assets/imagenes/oracion_2.jpg") no-repeat center;
+  background: url("https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Foracion_2.jpg?alt=media&token=5a310213-b1d6-47fb-8ee8-ae485bf7abc8") no-repeat center;
   background-size: cover;
   background-attachment: fixed;
   opacity: 0.5;
@@ -97,7 +97,7 @@ form button {
     display: block;
     width: 100%;
     height: 120vh;
-    background: url("/assets/imagenes/oracion.jpg") no-repeat center;
+    background: url("https://firebasestorage.googleapis.com/v0/b/editoriales-ibpr.appspot.com/o/portada%2Foracion.jpg?alt=media&token=61e6f4ab-7cc9-4e12-8513-652bb214a4d0") no-repeat center;
     background-size: cover;
     background-attachment: fixed;
     opacity: 0.5;
