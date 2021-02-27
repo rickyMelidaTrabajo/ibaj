@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataWebService } from "../../../services/data-web.service";
+import { CounselingServiceService } from "../../../services/counseling-service.service";
 import { Consejos } from '../../../models/consejos.interface';
 import { waitMe } from "waitme/waitMe";
 
@@ -20,12 +20,12 @@ export class AdvicesComponent implements OnInit {
   p: number = 1;
   pagination: any;
 
-  constructor(private _data: DataWebService) {  }
+  constructor(private _dataCounseling: CounselingServiceService) {  }
 
   ngOnInit(): void {
     this.getData()
     .then(res => {
-      this.data = res.data;
+      this.data = res;
     })
     .catch(error =>{
       console.log(error);
@@ -36,12 +36,13 @@ export class AdvicesComponent implements OnInit {
 
   }
 
-  getData():any {
-    return new Promise((resolve, reject)=>{
-      this._data.getconsejos()
-      .subscribe(item => {
-        item.forEach((element, index) => {
-          resolve(element.payload.doc.data());
+  getData(): any {
+    return new Promise((resolve, reject) => {
+      this._dataCounseling.getconsejos().subscribe((item) => {
+        let datos = new Array;
+        item.forEach(element => {
+          datos.push(element.payload.doc.data());
+          resolve(datos);
         });
       });
     });

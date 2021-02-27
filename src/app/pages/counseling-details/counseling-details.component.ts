@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Comentario } from 'src/app/models/comentario.interface';
 import { Consejos } from 'src/app/models/consejos.interface';
-import { DataWebService } from 'src/app/services/data-web.service';
+import { CounselingServiceService } from 'src/app/services/counseling-service.service';
 import { waitMe } from "waitme/waitMe";
 
 // Declaramos las variables para jQuery
@@ -22,20 +22,26 @@ export class CounselingDetailsComponent implements OnInit {
     urlImagen: '',
     texto: '',
     autor: '',
+    comentarios: [
+      {
+        comentario: '',
+        nombre: ''
+      }
+    ],
     id:''
   };
   id: number;
 
   formGroup: FormGroup;
   dataComment: Array<Comentario> = new Array();
-  existComment: boolean;
+  existComment: boolean = false;
 
   otherC: Array<Consejos> = new Array();
 
 
   constructor(
     private ruta: ActivatedRoute,
-    private _data: DataWebService,
+    private _dataCounseling: CounselingServiceService,
     private formBuilder: FormBuilder
   ) { }
 
@@ -45,9 +51,11 @@ export class CounselingDetailsComponent implements OnInit {
 
     this.getData()
       .then(res => {
-        this.data = res.data;
-        this.consejo = this.data[this.id];
+        this.data = res;
         this.getOtherCounseling();
+        this.consejo = this.data[this.id];
+
+        this.checkComments();
       })
       .catch(error => {
       });
@@ -56,13 +64,24 @@ export class CounselingDetailsComponent implements OnInit {
 
   getData(): any {
     return new Promise((resolve, reject) => {
-      this._data.getconsejos()
-        .subscribe(item => {
-          item.forEach((element, index) => {
-            resolve(element.payload.doc.data());
-          });
+      this._dataCounseling.getconsejos().subscribe((item) => {
+        let datos = new Array;
+        item.forEach(element => {
+          datos.push(element.payload.doc.data());
+          resolve(datos);
         });
+      });
     });
+  }
+
+  checkComments(): boolean {
+    this.dataComment = this.consejo.comentarios;
+
+    if (this.dataComment.length != 0) {
+      this.existComment = true;
+    }
+
+    return this.existComment;
   }
 
   getOtherCounseling() {
@@ -78,17 +97,22 @@ export class CounselingDetailsComponent implements OnInit {
   }
 
   addComment() {
-    this.dataComment.push(this.formGroup.value as any);
-    // this._data.addComment(this.formGroup.value).then((res) => {
-    //   this.formGroup.reset();
-    //   alert('Genial!');
-    // });
+    console.log(this.existComment);
+    if(this.checkComments()) {
+      this.dataComment.push(this.formGroup.value as any);
+    }
+    console.log(this.dataComment);
+    this._dataCounseling.addComment(this.formGroup.value, this.id.toString())
+    .then(res=>{
+      alert('Excelente');
+      this.formGroup.reset();
+    });
   }
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      comment: ['', Validators.required],
-      name: ['', Validators.required]
+      comentario: ['', Validators.required],
+      nombre: ['', Validators.required]
     });
   }
 

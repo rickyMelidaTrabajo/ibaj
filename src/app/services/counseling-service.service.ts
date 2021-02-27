@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArticlesServicesService {
+export class CounselingServiceService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  getArticles() {
-    return this.firestore.collection('articles').snapshotChanges();
+  getconsejos() {
+    return this.firestore.collection('consejos').snapshotChanges();
   }
 
   addComment(comentarios: Array<any>, idArticle: any) {
@@ -33,13 +32,8 @@ export class ArticlesServicesService {
       datoArrayM: 'datoArrayM4'
     },
     );
-    return this.firestore.collection('articles').doc(idArticle).set({
+    return this.firestore.collection('consejos').doc(idArticle).set({
       comentarios
     }, {merge: true});
   }
-
-  getComment() {
-    return this.firestore.collection('comentarios').snapshotChanges();
-  }
-
 }

@@ -7,6 +7,7 @@ import { ArticlesServicesService } from 'src/app/services/articles-services.serv
 
 import { Comentario } from 'src/app/models/comentario.interface';
 import { Blog } from 'src/app/models/blog.interface';
+import Swal from 'sweetalert2';
 
 // Declaramos las variables para jQuery
 declare var jQuery: any;
@@ -34,6 +35,7 @@ export class BlogComponent implements OnInit {
   formGroup: FormGroup;
   dataComment: Array<Comentario> = new Array();
   existComment: boolean = false;
+  commentAdd: boolean = false;
 
   constructor(
     private _articlesServices: ArticlesServicesService,
@@ -56,7 +58,6 @@ export class BlogComponent implements OnInit {
         this.getOtherArticles();
         this.lastArticle = this.articles[this.indice];
         this.dataComment = this.lastArticle.comentarios;
-        console.log(this.dataComment);
 
         if (this.dataComment.length != 0) {
           this.existComment = true;
@@ -95,8 +96,8 @@ export class BlogComponent implements OnInit {
   addComment() {
     this.dataComment.push(this.formGroup.value as any);
     this._articlesServices.addComment(this.dataComment, this.indice.toString()).then((res) => {
+      this.commentAdd = true;
       this.formGroup.reset();
-      alert('Genial!');
     });
   }
 

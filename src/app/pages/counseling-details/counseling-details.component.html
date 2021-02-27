@@ -22,15 +22,15 @@
 
     <form [formGroup]="formGroup">
       <div class="form-group">
-        <textarea name="" id="" cols="30" rows="10" placeholder="Comentario.." formControlName="comment"></textarea>
-        <div *ngIf="formGroup.controls['comment'].invalid && formGroup.controls['comment'].dirty" class="alert">
-          <span *ngIf="formGroup.controls['comment'].errors.required">Este campo es requerido</span>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Comentario.." formControlName="comentario"></textarea>
+        <div *ngIf="formGroup.controls['comentario'].invalid && formGroup.controls['comentario'].dirty" class="alert">
+          <span *ngIf="formGroup.controls['comentario'].errors.required">Este campo es requerido</span>
         </div>
       </div>
       <div class="form-group">
-        <input type="text" name="" id="" placeholder="Nombre" formControlName="name">
-        <div *ngIf="formGroup.controls['name'].invalid && formGroup.controls['name'].dirty" class="alert">
-          <span *ngIf="formGroup.controls['name'].errors.required">El nombre es requerido</span>
+        <input type="text" name="" id="" placeholder="Nombre" formControlName="nombre">
+        <div *ngIf="formGroup.controls['nombre'].invalid && formGroup.controls['nombre'].dirty" class="alert">
+          <span *ngIf="formGroup.controls['nombre'].errors.required">El nombre es requerido</span>
         </div>
       </div>
       <div class="form-group">

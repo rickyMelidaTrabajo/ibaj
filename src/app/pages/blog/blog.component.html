@@ -39,6 +39,12 @@
       <div class="form-group">
         <button (click)="addComment()">Enviar</button>
       </div>
+      <div *ngIf="commentAdd" class="message-success">
+        <strong>Excelente!</strong>
+        <span>
+          Su comentario fue agregado correctamente
+        </span>
+      </div>
     </form>
   </div>
 

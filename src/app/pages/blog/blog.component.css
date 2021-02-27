@@ -130,6 +130,26 @@ cite {
   border-radius: 7px;
 }
 
+.message-success {
+  width: 80%;
+  margin: 5% 5px;
+  border: 1px solid #22BB33;
+  border-radius: 5px;
+  background: #22bb88;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.message-success strong {
+  font-size: 17px;
+  padding-right: 5px;
+}
+
+.message-success span {
+  font-size: 14px;
+}
+
 @media (min-width: 1024px) {
   .container {
     display: grid;
