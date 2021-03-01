@@ -28,13 +28,17 @@ export class CounselingDetailsComponent implements OnInit {
         nombre: ''
       }
     ],
-    id:''
+    id: ''
   };
   id: number;
 
   formGroup: FormGroup;
   dataComment: Array<Comentario> = new Array();
   existComment: boolean = false;
+  commentAdd: boolean = false;
+
+  commentEmpty:boolean ;
+  nameEmpty:boolean;
 
   otherC: Array<Consejos> = new Array();
 
@@ -55,11 +59,13 @@ export class CounselingDetailsComponent implements OnInit {
         this.getOtherCounseling();
         this.consejo = this.data[this.id];
 
-        this.checkComments();
+        if (this.checkComments()) {
+          this.dataComment = this.consejo.comentarios;
+        }
       })
       .catch(error => {
       });
-      this.loader();
+    this.loader();
   }
 
   getData(): any {
@@ -75,9 +81,7 @@ export class CounselingDetailsComponent implements OnInit {
   }
 
   checkComments(): boolean {
-    this.dataComment = this.consejo.comentarios;
-
-    if (this.dataComment.length != 0) {
+    if (this.consejo.comentarios != undefined) {
       this.existComment = true;
     }
 
@@ -96,17 +100,32 @@ export class CounselingDetailsComponent implements OnInit {
     }, 500);
   }
 
-  addComment() {
-    console.log(this.existComment);
-    if(this.checkComments()) {
-      this.dataComment.push(this.formGroup.value as any);
+  checkEmptyText(){
+    if(this.formGroup.value.comentario != "") {
+      this.commentEmpty = false;
+    }else {
+      this.commentEmpty = true;
     }
-    console.log(this.dataComment);
-    this._dataCounseling.addComment(this.formGroup.value, this.id.toString())
-    .then(res=>{
-      alert('Excelente');
-      this.formGroup.reset();
-    });
+
+    if(this.formGroup.value.nombre != "") {
+      this.nameEmpty = false;
+    }else {
+      this.nameEmpty = true;
+    }
+  }
+
+  addComment() {
+    this.dataComment.unshift(this.formGroup.value as any);
+    this.checkEmptyText();
+
+    if(!this.commentEmpty && !this.nameEmpty) {
+      this._dataCounseling.addComment(this.dataComment, this.id.toString())
+        .then(res => {
+          this.commentAdd = true;
+          this.formGroup.reset();
+          this.dataComment;
+        });
+    }
   }
 
   private buildForm() {

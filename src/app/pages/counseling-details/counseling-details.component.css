@@ -25,7 +25,7 @@ section .img img {
 
 section p {
   height: auto;
-  font-size: 1.5rem;
+  font-size: 20px;
   font-family: "Roboto Slab", serif;
   font-weight: 315;
   line-height: 1.625;
@@ -65,9 +65,14 @@ input {
 
 /*------------------ Comentarios -------------------------*/
 /*---------------------------------------------------------*/
+.comments h3 {
+  margin: 0 20% 3%;
+  font-size: 23px;
+}
+
 .comment {
   width: 60%;
-  margin: auto;
+  margin: 10% auto;
 }
 
 .comment em,
@@ -113,6 +118,27 @@ cite {
   border-radius: 7px;
 }
 
+.message-success {
+  width: 80%;
+  margin: 5% 5px;
+  border: 1px solid #22BB33;
+  border-radius: 5px;
+  background: #22bb88;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.message-success strong {
+  font-size: 17px;
+  padding-right: 5px;
+  display: block;
+}
+
+.message-success span {
+  font-size: 14px;
+}
+
 @media (min-width: 1024px) {
   .container {
     display: grid;
@@ -152,6 +178,11 @@ cite {
     width: 100%;
     padding: 3% 0;
     margin-top: -15%;
+  }
+
+  .comments h3 {
+    margin: 0 20% 3%;
+    font-size: 23px;
   }
 
   .comment {
