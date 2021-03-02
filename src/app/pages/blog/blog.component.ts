@@ -35,6 +35,10 @@ export class BlogComponent implements OnInit {
   formGroup: FormGroup;
   dataComment: Array<Comentario> = new Array();
   existComment: boolean = false;
+
+  commentEmpty: boolean;
+  nameEmpty: boolean;
+
   commentAdd: boolean = false;
 
   constructor(
@@ -57,10 +61,9 @@ export class BlogComponent implements OnInit {
         this.articles = res;
         this.getOtherArticles();
         this.lastArticle = this.articles[this.indice];
-        this.dataComment = this.lastArticle.comentarios;
 
-        if (this.dataComment.length != 0) {
-          this.existComment = true;
+        if (this.checkComments()) {
+          this.dataComment = this.lastArticle.comentarios;
         }
       });
 
@@ -93,12 +96,25 @@ export class BlogComponent implements OnInit {
   }
 
 
+
   addComment() {
-    this.dataComment.push(this.formGroup.value as any);
-    this._articlesServices.addComment(this.dataComment, this.indice.toString()).then((res) => {
-      this.commentAdd = true;
-      this.formGroup.reset();
-    });
+    this.checkEmptyText();
+    // console.log(`El comentario esta en ${this.commentEmpty} y el nombre esta en ${this.nameEmpty}`);
+    // console.log(this.checkComments());
+
+    if (!this.commentEmpty && !this.nameEmpty) {
+      if(!this.checkComments()) {
+        this.dataComment.push(this.formGroup.value as any);
+      }else {
+        this.dataComment.unshift(this.formGroup.value as any);
+      }
+
+      this._articlesServices.addComment(this.dataComment, this.indice.toString()).then((res) => {
+        this.commentAdd = true;
+        this.formGroup.reset();
+        this.dataComment;
+      });
+    }
   }
 
   getComments(): any {
@@ -110,6 +126,27 @@ export class BlogComponent implements OnInit {
         reject('No hay comentarios');
       });
     });
+  }
+
+  checkComments(): boolean {
+    if (this.lastArticle.comentarios != undefined) {
+      this.existComment = true;
+    }
+
+    return this.existComment;
+  }
+
+  checkEmptyText() {
+    this.commentEmpty = true;
+    this.nameEmpty = true;
+
+    if (this.formGroup.value.comentario != "") {
+      this.commentEmpty = false;
+    }
+
+    if (this.formGroup.value.nombre != "") {
+      this.nameEmpty = false;
+    }
   }
 
   loader() {

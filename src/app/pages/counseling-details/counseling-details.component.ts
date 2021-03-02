@@ -115,10 +115,10 @@ export class CounselingDetailsComponent implements OnInit {
   }
 
   addComment() {
-    this.dataComment.unshift(this.formGroup.value as any);
     this.checkEmptyText();
 
     if(!this.commentEmpty && !this.nameEmpty) {
+      this.dataComment.unshift(this.formGroup.value as any);
       this._dataCounseling.addComment(this.dataComment, this.id.toString())
         .then(res => {
           this.commentAdd = true;
