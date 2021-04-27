@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataWebService } from "../../../services/data-web.service";
+import { CounselingServiceService } from "../../../services/counseling-service.service";
 import { Consejos } from '../../../models/consejos.interface';
 import { waitMe } from "waitme/waitMe";
+import { element } from 'protractor';
 
 // Declaramos las variables para jQuery
 declare var jQuery: any;
@@ -20,30 +21,30 @@ export class AdvicesComponent implements OnInit {
   p: number = 1;
   pagination: any;
 
-  constructor(private _data: DataWebService) {  }
+  constructor(private _data: CounselingServiceService) {  }
 
   ngOnInit(): void {
     this.getData()
     .then(res => {
-      this.data = res.data;
+      this.data = res;
     })
     .catch(error =>{
-      console.log(error);
+      console.log('error');
     });
 
     this.pagination = document.querySelector('#control');
     this.pagination.addEventListener('click', this.loader);
-
   }
 
   getData():any {
     return new Promise((resolve, reject)=>{
-      this._data.getconsejos()
-      .subscribe(item => {
-        item.forEach((element, index) => {
-          resolve(element.payload.doc.data());
-        });
-      });
+     this._data.getCounseling().subscribe(item=>{
+       let datos = new Array;
+       item.forEach( element=>{
+         datos.push(element.payload.doc.data());
+         resolve(datos);
+       })
+     })
     });
   }
 

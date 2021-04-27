@@ -43,9 +43,9 @@
   <div class="comments" *ngIf="existComment; else noComments">
     <div class="comment" *ngFor="let comentario of dataComment">
       <em>
-        "{{ comentario.comentario }}"
+        "{{ comentario.comment }}"
       </em>
-      <cite>{{ comentario.nombre }}</cite>
+      <cite>{{ comentario.name }}</cite>
     </div>
 
   </div>
@@ -69,7 +69,7 @@
         {{ article.texto }}
       </p>
 
-      <a [routerLink]="['/details', article.id]" (click)="otherCounseling()">leer mas..</a>
+      <a [routerLink]="['/details', article.id]" (click)="loadOtherCounseling()">leer mas..</a>
     </div>
   </div>
 

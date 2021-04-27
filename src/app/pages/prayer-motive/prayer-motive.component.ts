@@ -42,7 +42,6 @@ export class PrayerMotiveComponent implements OnInit {
       .then(result => {
         this.dataRes.push(result);
         this.idPrayer = this.dataRes[0].length;
-        console.log(Math.round(Math.random() * 8));
       });
 
     this.getVersos()

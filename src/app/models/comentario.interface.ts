@@ -1,4 +1,4 @@
 export interface Comentario {
-  comentario: string;
-  nombre: string;
+  comment: string;
+  name: string;
 }

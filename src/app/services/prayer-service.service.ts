@@ -9,7 +9,7 @@ export class PrayerServiceService {
   constructor(private firestore: AngularFirestore) { }
 
   addPrayer(orderPrayer: any, id: any) {
-    return this.firestore.collection('peticiones-oracion').doc(id.toString()).set({orderPrayer});
+    return this.firestore.collection('peticiones-oracion').doc(id.toString()).set({orderPrayer}, { merge: true });
   }
 
   getPrayer() {
