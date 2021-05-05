@@ -38,28 +38,22 @@ export class ArticlesComponent implements OnInit {
   constructor(private _articlesService: ArticlesServicesService, private _versesServices: VersesService) { }
 
   ngOnInit(): void {
-
     this.sizeDesktop = false;
+    this.cantArticles = 3;
 
     if (screen.width >= 1024) {
       this.sizeDesktop = true
     }
 
-    this.cantArticles = 3;
-
     this.getData()
       .then(res => {
         this.articles = res;
-        console.log(this.articles);
       });
 
     this.getVersos()
       .then(res => {
         this.versos = res.data;
       });
-
-
-
   }
 
   getData(): any {

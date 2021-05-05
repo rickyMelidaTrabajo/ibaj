@@ -4,7 +4,7 @@
 
 <div class="container" id="container">
 
-
+  <!------------------------ ARTICLE SECTION  -------------------------------------->
   <div class="article">
     <section>
       <h3>{{ consejo.titulo }}</h3>
@@ -14,29 +14,27 @@
       <p>
         {{ consejo.texto }}
       </p>
-
       <cite> Autor: {{ consejo.autor }}</cite>
-
     </section>
-
-
+    <!------------------------ FORM COMMENT ---------------------------------------->
     <form [formGroup]="formGroup">
       <div class="form-group">
-        <textarea name="" cols="30" rows="10" placeholder="Comentario.." formControlName="comentario"></textarea>
-        <div *ngIf="formGroup.controls['comentario'].invalid && formGroup.controls['comentario'].dirty || commentEmpty" class="alert">
+        <textarea name="" cols="30" rows="10" placeholder="Comentario.." formControlName="comment"></textarea>
+        <div *ngIf="formGroup.controls['comment'].invalid && formGroup.controls['comment'].dirty" class="alert">
           <span>Este campo es requerido</span>
         </div>
       </div>
       <div class="form-group">
-        <input type="text" name="" placeholder="Nombre" formControlName="nombre">
-        <div *ngIf="formGroup.controls['nombre'].invalid && formGroup.controls['nombre'].dirty || nameEmpty" class="alert">
+        <input type="text" name="" placeholder="Nombre" formControlName="name">
+        <div *ngIf="formGroup.controls['name'].invalid && formGroup.controls['name'].dirty" class="alert">
           <span>El nombre es requerido</span>
         </div>
       </div>
       <div class="form-group">
         <button (click)="addComment()">Enviar</button>
       </div>
-      <div *ngIf="commentAdd" class="message-success">
+    <!------------------------ BOX NOTIFICATION ---------------------------------------->
+      <div class="message-success" id="box-notification">
         <strong>Excelente!</strong>
         <span>
           Su comentario fue agregado correctamente
@@ -45,18 +43,18 @@
     </form>
   </div>
 
-
+  <!------------------------ COMMENTS  -------------------------------------------->
   <div class="comments" *ngIf="existComment; else noComments">
     <h3>Comentarios</h3>
-    <div class="comment" *ngFor="let comentario of dataComment">
+    <div class="comment" *ngFor="let comentario of dataComment.reverse()">
       <em>
-        "{{ comentario.comentario }}"
+        "{{ comentario.comment }}"
       </em>
-      <cite>{{ comentario.nombre }}</cite>
+      <cite>{{ comentario.name }}</cite>
     </div>
-
   </div>
 
+  <!------------------------ NO COMMENTS  ----------------------------------------->
   <ng-template #noComments>
     <div class="comments">
       <div class="comment">
@@ -65,8 +63,7 @@
     </div>
   </ng-template>
 
-
-
+  <!------------------------ OTHER COUNSELING  ------------------------------------->
   <div class="other">
     <h4>Otros Consejos</h4>
     <div class="other-articles" *ngFor="let article of otherC">
@@ -76,7 +73,7 @@
         {{ article.texto }}
       </p>
 
-      <a [routerLink]="['/details', article.id]" (click)="otherCounseling()">leer mas..</a>
+      <a [routerLink]="['/details', article.id]" (click)="loadOtherCounseling()">leer mas..</a>
     </div>
   </div>
 
